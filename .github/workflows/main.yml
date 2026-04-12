@@ -47,7 +47,7 @@ jobs:
       - name: Install Minima.GlobalTool
         run: |
           dotnet pack
-          dotnet tool install -g Minima.GlobalTool --add-source ./src/VirtoCommerce.Build/artifacts
+          dotnet tool install -g Minima.GlobalTool --add-source ./src/Minima.Build/artifacts
 
       - name: Set up Java 17
         uses: actions/setup-java@v3

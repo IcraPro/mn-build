@@ -11,12 +11,12 @@ on:
 
 jobs:
   test:
-    uses: VirtoCommerce/.github/.github/workflows/test-and-sonar.yml@v3.200.20
+    uses: IcraPro/.github/.github/workflows/test-and-sonar.yml@v3.200.20
     secrets:
       sonarToken: ${{ secrets.SONAR_TOKEN }}
 
   build:
-    uses: VirtoCommerce/.github/.github/workflows/build.yml@v3.200.20
+    uses: IcraPro/.github/.github/workflows/build.yml@v3.200.20
     with:
       uploadPackage: 'true'
       uploadDocker: 'false'
@@ -90,6 +90,6 @@ jobs:
     - name: Publish to Private NuGet
       run: |
         dotnet nuget push artifacts/*.nupkg \
-          --source https://nuget.alaplihaber.com \
+          --source ${{ secrets.PRIVATE_NUGET_URL }} \
           --api-key ${{ secrets.PRIVATE_NUGET_KEY }} \
           --skip-duplicate
