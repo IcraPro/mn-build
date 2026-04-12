@@ -549,7 +549,7 @@ internal partial class Build : NukeBuild
 
     private static void CheckIfAborted()
     {
-        var disableApproval = Environment.GetEnvironmentVariable("VCBUILD_DISABLE_RELEASE_APPROVAL");
+        var disableApproval = Environment.GetEnvironmentVariable("MNBUILD_DISABLE_RELEASE_APPROVAL");
 
         if (disableApproval.IsNullOrEmpty() && !Force)
         {

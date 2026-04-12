@@ -296,7 +296,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.4.19] - 2020-12-28
 ### Added
-- VCBUILD_DISABLE_RELEASE_APPROVAL environment variable to disable release approval
+- MNBUILD_DISABLE_RELEASE_APPROVAL environment variable to disable release approval
 ### Changed
 - Updated Nuke.Common dependency
 - github-release tool replaced by Octokit
