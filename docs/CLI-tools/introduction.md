@@ -1,9 +1,9 @@
 
-The VirtoCommerce Global Tool (vc-build) is the official CLI [.NET Core GlobalTool](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools) that helps you build, test and deploy releases, create and push NuGet packages, provide package management for projects based on VirtoCommerce, and automate common DevOps tasks. It is powered by [nuke.build](https://nuke.build/) - a cross-platform build automation system with C# DSL, that provides an approach to embrace existing IDE tooling and state where everyone in a team can manage and change the build scenarios. This allows writing build scenarios in C# and debugging them in Visual Studio. Also, along with cross-platform support, it was the best choice for us to build our own build automation solution on top of this project.
+The Minima Global Tool (mn-build) is the official CLI [.NET Core GlobalTool](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools) that helps you build, test and deploy releases, create and push NuGet packages, provide package management for projects based on Minima, and automate common DevOps tasks. It is powered by [nuke.build](https://nuke.build/) - a cross-platform build automation system with C# DSL, that provides an approach to embrace existing IDE tooling and state where everyone in a team can manage and change the build scenarios. This allows writing build scenarios in C# and debugging them in Visual Studio. Also, along with cross-platform support, it was the best choice for us to build our own build automation solution on top of this project.
 
-Check out [the project source code](https://github.com/VirtoCommerce/vc-build) for the implementation details.
+Check out [the project source code](https://github.com/Minima/mn-build) for the implementation details.
 
-![vc-build CLI](../media/cli-tools-1.png)
+![mn-build CLI](../media/cli-tools-1.png)
 
 ## The key features:
 
@@ -23,39 +23,39 @@ Check out [the project source code](https://github.com/VirtoCommerce/vc-build) f
 [The platform cold start optimization and data migration (WIP)](./cold-start-and-data-migration.md)
 
 - platform start optimization (slow run on Azure case)
-- get idempotent SQL scripts for all modules EF migrations with the ability to apply them in a specific order without installed platform and source code (helpful for migration from VirtoCommerce platform version 2 (latest) to version 3)
+- get idempotent SQL scripts for all modules EF migrations with the ability to apply them in a specific order without installed platform and source code (helpful for migration from Minima platform version 2 (latest) to version 3)
 
 ## Before you start
-Before you start using `VirtoCommerce.GlobalTool`, install the following in order to use all its functionality:
+Before you start using `Minima.GlobalTool`, install the following in order to use all its functionality:
 
 - .NET SDK 5.x
 - Node.js 12.x
 - Git SCM
 
 ## Installation
-Run this command to install `VirtoCommerce.GlobalTool` on your machine:
+Run this command to install `Minima.GlobalTool` on your machine:
 ```console
 
-dotnet tool install VirtoCommerce.GlobalTool  -g
+dotnet tool install Minima.GlobalTool  -g
 
 ```
 
 ## Updating
-Run this command to update `VirtoCommerce.GlobalTool` to the latest version:
+Run this command to update `Minima.GlobalTool` to the latest version:
 
 ```console
 
-dotnet tool update VirtoCommerce.GlobalTool -g
+dotnet tool update Minima.GlobalTool -g
 
 ```
 
 ## Getting started
-To use `VirtoCommerce.GlobalTool` by invoke the tool run the following command: `vc-build`
+To use `Minima.GlobalTool` by invoke the tool run the following command: `mn-build`
 
 To get the list of all targets:
 ```console
 
-vc-build help
+mn-build help
 
 ```
 Command output:

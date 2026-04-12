@@ -1,11 +1,11 @@
 # Introduction
 
 
-The VirtoCommerce Global Tool (vc-build) is the official CLI [.NET Core GlobalTool](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools) that helps you build, test and deploy releases, create and push NuGet packages, provide package management for projects based on VirtoCommerce, and automate common DevOps tasks. It is powered by [nuke.build](https://nuke.build/) - a cross-platform build automation system with C# DSL, that provides an approach to embrace existing IDE tooling and state where everyone in a team can manage and change the build scenarios. This allows writing build scenarios in C# and debugging them in Visual Studio. Also, along with cross-platform support, it was the best choice for us to build our own build automation solution on top of this project.
+The Minima Global Tool (mn-build) is the official CLI [.NET Core GlobalTool](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools) that helps you build, test and deploy releases, create and push NuGet packages, provide package management for projects based on Minima, and automate common DevOps tasks. It is powered by [nuke.build](https://nuke.build/) - a cross-platform build automation system with C# DSL, that provides an approach to embrace existing IDE tooling and state where everyone in a team can manage and change the build scenarios. This allows writing build scenarios in C# and debugging them in Visual Studio. Also, along with cross-platform support, it was the best choice for us to build our own build automation solution on top of this project.
 
-Check out [the project source code](https://github.com/VirtoCommerce/vc-build) for the implementation details.
+Check out [the project source code](https://github.com/Minima/mn-build) for the implementation details.
 
-![vc-build CLI](docs/media/cli-tools-1.png)
+![mn-build CLI](docs/media/cli-tools-1.png)
 
 ## The key features:
 
@@ -25,34 +25,34 @@ Check out [the project source code](https://github.com/VirtoCommerce/vc-build) f
 [The platform cold start optimization and data migration (WIP)](docs/CLI-tools/cold-start-and-data-migration.md)
 
 - platform start optimization (slow run on Azure case)
-- get idempotent SQL scripts for all modules EF migrations with the ability to apply them in a specific order without installed platform and source code (helpful for migration from VirtoCommerce platform version 2 (latest) to version 3)
+- get idempotent SQL scripts for all modules EF migrations with the ability to apply them in a specific order without installed platform and source code (helpful for migration from Minima platform version 2 (latest) to version 3)
 
 ## Before you start
-Before you start using `VirtoCommerce.GlobalTool`, install the following in order to use all its functionality:
+Before you start using `Minima.GlobalTool`, install the following in order to use all its functionality:
 
 - .NET SDK 5.x
 - Node.js 12.x
 - Git SCM
 
 ## Installation
-Run this command to install `VirtoCommerce.GlobalTool` on your machine:
+Run this command to install `Minima.GlobalTool` on your machine:
 ```console
 
-dotnet tool install VirtoCommerce.GlobalTool  -g
+dotnet tool install Minima.GlobalTool  -g
 
 ```
 
 ## Updating 
-Run this command to update `VirtoCommerce.GlobalTool` to the latest version:
+Run this command to update `Minima.GlobalTool` to the latest version:
 
 ```console
 
-dotnet tool update VirtoCommerce.GlobalTool -g
+dotnet tool update Minima.GlobalTool -g
 
 ```
 
 ## Checking installed version
-To check which `VirtoCommerce.GlobalTool` tools are installed globally on your system, use the following command:
+To check which `Minima.GlobalTool` tools are installed globally on your system, use the following command:
 
 ```console
 
@@ -61,12 +61,12 @@ dotnet tool list -g
 ```
 
 ## Getting started
-To use `VirtoCommerce.GlobalTool` by invoke the tool run the following command: `vc-build`
+To use `Minima.GlobalTool` by invoke the tool run the following command: `mn-build`
 
 To get the list of all targets:
 ```console
 
-vc-build help
+mn-build help
 
 ```
 Command output:
@@ -117,7 +117,7 @@ Target with name 'help' does not exist. Available targets are:
 To get help for the specific target:
 ```console
 
-vc-build help NameOfTheTarget
+mn-build help NameOfTheTarget
 
 ```
 
@@ -130,7 +130,7 @@ To execute this target, you need to run this command in the root module folder o
 
 ```console
 
-vc-build compress
+mn-build compress
 
 ```
 
@@ -171,23 +171,23 @@ Used to automate the routine operations with release branches
 - adds tag and pushes
 
 ### Packages management
-The `vc-build` provides the set of targets that allow you to easily install, uninstall, and update platform dependencies by simple CLI commands execution.
+The `mn-build` provides the set of targets that allow you to easily install, uninstall, and update platform dependencies by simple CLI commands execution.
 
 #### Install
 
 ```console
-vc-build install (with no args)
-vc-build install -platform -version <version>
-vc-build install -module <module> -version <version>
-vc-build install -module <module>:<version>
+mn-build install (with no args)
+mn-build install -platform -version <version>
+mn-build install -module <module> -version <version>
+mn-build install -module <module>:<version>
 ```
 
 This command downloads and install into the current folder the platform or modules with versions that are passed as the command parameters or defined in `vc-package.json`. 
 
-`vc-package.json` - file is used to maintain the list of installed modules with their versions. This allows `vc-build` to easily restore the platform with the modules when on a different machine, such as a build server, without all those packages.
+`vc-package.json` - file is used to maintain the list of installed modules with their versions. This allows `mn-build` to easily restore the platform with the modules when on a different machine, such as a build server, without all those packages.
 
 
-- `vc-build install (with no args)`
+- `mn-build install (with no args)`
 
 This target downloads and install into the current folder the platform and modules with versions described in `vc-package.json`. 
 If `vc-package.json` is not found in the local folder, by default the command will download and install the latest platform and modules versions that are marked with the `commerce` group.
@@ -196,21 +196,21 @@ By default, `install` target will install all modules listed as dependencies in 
 
 Examples:
 ```console
-vc-build install 
+mn-build install 
 ```
 
-- `vc-build install -platform -version <version>`
+- `mn-build install -platform -version <version>`
 
 Fetch and install the platform with the specific version. If the platform with specified version does not exist in the registry, then this will fail.
 If no version is specified, the latest platform version will be installed.
 
 Examples:
 ```console
-vc-build install -platform
-vc-build install -platform -version 3.55.0
+mn-build install -platform
+mn-build install -platform -version 3.55.0
 ```
 
-- `vc-build install -module -version <version>`
+- `mn-build install -module -version <version>`
 
 Install the specified version of the module. This will fail if the version has not been published to the registry.
 If no version is specified, the latest module version will be installed.
@@ -222,17 +222,17 @@ This command also modified the `vc-package.json` with the installed dependencies
 
 Examples:
 ```console
-vc-build install -module VirtoCommerce.Cart
-vc-build install -module VirtoCommerce.Cart -version 3.12.0
-vc-build install -module VirtoCommerce.Cart:3.12.0 VirtoCommerce.Core:3.20.0
+mn-build install -module Minima.Cart
+mn-build install -module Minima.Cart -version 3.12.0
+mn-build install -module Minima.Cart:3.12.0 Minima.Core:3.20.0
 ```
 
 #### Update
 
 ```console
-vc-build update (with no args)
-vc-build update -platform -version <version>
-vc-build update -module <module> -version <version>
+mn-build update (with no args)
+mn-build update -platform -version <version>
+mn-build update -module <module> -version <version>
 ```
 This command will update the platform and all modules listed to the version specified by `<version>`, respecting semver.
 If `<version>` is not specified the component will updated to the latest version.
@@ -242,21 +242,21 @@ This command also updated the installed dependencies versions in the `vc-package
 
 Examples:
 ```console
-vc-build update
-vc-build update -platform
-vc-build update -platform -version 3.14.0
-vc-build update -module VirtoCommerce.Cart
-vc-build update -module VirtoCommerce.Cart -version 3.30.0
+mn-build update
+mn-build update -platform
+mn-build update -platform -version 3.14.0
+mn-build update -module Minima.Cart
+mn-build update -module Minima.Cart -version 3.30.0
 ```
 
 #### Uninstall
 ```console
-vc-build uninstall -module <module>
+mn-build uninstall -module <module>
 ```
 This uninstalls a module and completely removes all modules that depend on it.
 It also removes uninstalled modules from your `vc-package.json`.
 
 Examples:
 ```console
-vc-build uninstall -module VirtoCommerce.Cart
+mn-build uninstall -module Minima.Cart
 ```

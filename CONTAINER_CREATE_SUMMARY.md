@@ -1,8 +1,8 @@
-# Container Create vc-build Command - Complete Documentation
+# Container Create mn-build Command - Complete Documentation
 
 ## What is Container Create?
 
-The "Container Create" functionality in vc-build refers to the comprehensive Docker containerization workflow that allows developers to build, configure, and deploy VirtoCommerce applications as Docker containers. This is not a single command, but rather a coordinated set of targets that work together to containerize VirtoCommerce platforms and modules.
+The "Container Create" functionality in mn-build refers to the comprehensive Docker containerization workflow that allows developers to build, configure, and deploy Minima applications as Docker containers. This is not a single command, but rather a coordinated set of targets that work together to containerize Minima platforms and modules.
 
 ## Key Container Creation Targets
 
@@ -11,14 +11,14 @@ The "Container Create" functionality in vc-build refers to the comprehensive Doc
 
 **What it does**:
 - Creates `artifacts/docker/` directory structure
-- Downloads official VirtoCommerce Dockerfile and helper scripts
-- Compiles and publishes the VirtoCommerce platform
+- Downloads official Minima Dockerfile and helper scripts
+- Compiles and publishes the Minima platform
 - Builds and copies all discovered modules
 - Configures Docker image names, tags, and build parameters
 
 **Usage**:
 ```console
-vc-build PrepareDockerContext -DockerUsername myuser -EnvironmentName myapp
+mn-build PrepareDockerContext -DockerUsername myuser -EnvironmentName myapp
 ```
 
 ### 2. `BuildImage` 
@@ -31,7 +31,7 @@ vc-build PrepareDockerContext -DockerUsername myuser -EnvironmentName myapp
 
 **Usage**:
 ```console
-vc-build BuildImage -DockerImageName myuser/myapp:latest
+mn-build BuildImage -DockerImageName myuser/myapp:latest
 ```
 
 ### 3. `PushImage`
@@ -43,7 +43,7 @@ vc-build BuildImage -DockerImageName myuser/myapp:latest
 
 **Usage**:
 ```console
-vc-build PushImage -DockerImageName myuser/myapp:latest
+mn-build PushImage -DockerImageName myuser/myapp:latest
 ```
 
 ### 4. `CloudUp` (Complete Container Create + Deploy - New Environment)
@@ -58,7 +58,7 @@ vc-build PushImage -DockerImageName myuser/myapp:latest
 
 **Usage**:
 ```console
-vc-build CloudUp -EnvironmentName mystore -DockerUsername mycompany -DockerPassword mypass
+mn-build CloudUp -EnvironmentName mystore -DockerUsername mycompany -DockerPassword mypass
 ```
 
 ### 5. `CloudDeploy` (Complete Container Create + Deploy - Existing Environment)
@@ -72,7 +72,7 @@ vc-build CloudUp -EnvironmentName mystore -DockerUsername mycompany -DockerPassw
 
 **Usage**:
 ```console
-vc-build CloudDeploy -EnvironmentName mystore -DockerUsername mycompany -DockerPassword mypass
+mn-build CloudDeploy -EnvironmentName mystore -DockerUsername mycompany -DockerPassword mypass
 ```
 
 ## Container Creation Workflows
@@ -81,12 +81,12 @@ vc-build CloudDeploy -EnvironmentName mystore -DockerUsername mycompany -DockerP
 
 **1. Create and deploy containerized app to new environment:**
 ```console
-vc-build CloudUp -EnvironmentName mystore -DockerUsername mycompany -DockerPassword mytoken
+mn-build CloudUp -EnvironmentName mystore -DockerUsername mycompany -DockerPassword mytoken
 ```
 
 **2. Update existing environment with new container:**
 ```console
-vc-build CloudDeploy -EnvironmentName mystore -DockerUsername mycompany -DockerPassword mytoken
+mn-build CloudDeploy -EnvironmentName mystore -DockerUsername mycompany -DockerPassword mytoken
 ```
 
 ### Advanced - Manual Container Building
@@ -94,13 +94,13 @@ vc-build CloudDeploy -EnvironmentName mystore -DockerUsername mycompany -DockerP
 **Step-by-step container creation:**
 ```console
 # 1. Prepare the Docker build environment
-vc-build PrepareDockerContext -DockerUsername mycompany -EnvironmentName mystore
+mn-build PrepareDockerContext -DockerUsername mycompany -EnvironmentName mystore
 
 # 2. Build the Docker image
-vc-build BuildImage -DockerImageName mycompany/mystore:v1.0.0
+mn-build BuildImage -DockerImageName mycompany/mystore:v1.0.0
 
 # 3. Push to registry
-vc-build PushImage -DockerImageName mycompany/mystore:v1.0.0
+mn-build PushImage -DockerImageName mycompany/mystore:v1.0.0
 ```
 
 ## Key Parameters
@@ -123,7 +123,7 @@ vc-build PushImage -DockerImageName mycompany/mystore:v1.0.0
 
 The container creation process includes:
 
-1. **VirtoCommerce Platform**: The core e-commerce platform
+1. **Minima Platform**: The core e-commerce platform
 2. **All Modules**: Discovered modules are built and included
 3. **Configuration**: Proper appsettings and module configurations
 4. **Dependencies**: All required runtime dependencies
@@ -134,7 +134,7 @@ The container creation process includes:
 ### Docker Context Structure
 ```
 artifacts/docker/
-├── Dockerfile          # Downloaded from VirtoCommerce repository
+├── Dockerfile          # Downloaded from Minima repository
 ├── wait-for-it.sh      # Helper script for container orchestration
 └── publish/            # Published platform and modules
     ├── appsettings.json
@@ -159,7 +159,7 @@ The container creation workflow automatically handles:
 ### Production Deployment
 ```console
 # Deploy production-ready container with specific version tag
-vc-build CloudUp -EnvironmentName production \
+mn-build CloudUp -EnvironmentName production \
   -DockerUsername mycompany \
   -DockerPassword $DOCKER_TOKEN \
   -DockerImageTag v2.1.0 \
@@ -169,7 +169,7 @@ vc-build CloudUp -EnvironmentName production \
 ### Development Environment
 ```console
 # Quick development environment setup
-vc-build CloudDeploy -EnvironmentName dev-feature-x \
+mn-build CloudDeploy -EnvironmentName dev-feature-x \
   -DockerUsername mycompany \
   -DockerPassword $DOCKER_TOKEN
 ```
@@ -177,7 +177,7 @@ vc-build CloudDeploy -EnvironmentName dev-feature-x \
 ### Custom Registry
 ```console
 # Use private registry
-vc-build CloudUp -EnvironmentName staging \
+mn-build CloudUp -EnvironmentName staging \
   -DockerUsername myuser \
   -DockerPassword $PRIVATE_TOKEN \
   -DockerRegistryUrl https://myregistry.company.com \
@@ -186,4 +186,4 @@ vc-build CloudUp -EnvironmentName staging \
 
 ## Summary
 
-The Container Create functionality in vc-build provides a complete, automated solution for containerizing VirtoCommerce applications. It handles the complex process of building, configuring, and deploying Docker containers that include the VirtoCommerce platform, all modules, and proper configuration. The workflow is designed to work seamlessly with VirtoCloud for cloud deployments while also supporting custom registries and manual container management.
+The Container Create functionality in mn-build provides a complete, automated solution for containerizing Minima applications. It handles the complex process of building, configuring, and deploying Docker containers that include the Minima platform, all modules, and proper configuration. The workflow is designed to work seamlessly with VirtoCloud for cloud deployments while also supporting custom registries and manual container management.

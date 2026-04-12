@@ -7,7 +7,7 @@ Purposes of this tool:
 
 ## 1. How to run
 ```
-vc-build GrabMigrator --grab-migrator-config <configfile>
+mn-build GrabMigrator --grab-migrator-config <configfile>
 ```
 
 ## 2. Grabbing migrations from platform and modules
@@ -18,8 +18,8 @@ vc-build GrabMigrator --grab-migrator-config <configfile>
 {
   "MigrationDirectories": [
     "D:\\AK\\Code\\Projects\\VC3-DEV-CORE3\\modules",
-    "D:\\AK\\Code\\Projects\\VC3-DEV-CORE3\\vc-platform\\src\\VirtoCommerce.Platform.Data",
-    "D:\\AK\\Code\\Projects\\VC3-DEV-CORE3\\vc-platform\\src\\VirtoCommerce.Platform.Security"
+    "D:\\AK\\Code\\Projects\\VC3-DEV-CORE3\\vc-platform\\src\\Minima.Platform.Data",
+    "D:\\AK\\Code\\Projects\\VC3-DEV-CORE3\\vc-platform\\src\\Minima.Platform.Security"
   ],
   "StatementsDirectory": "Statements"
 }
@@ -41,32 +41,32 @@ Nodes explanation:
 ``` json
 {
   "ApplyingOrder": [
-    "VirtoCommerce.Platform",
-    "VirtoCommerce.Platform.Security",
-    "VirtoCommerce.CoreModule",
-    "VirtoCommerce.TaxModule",
-    "VirtoCommerce.InventoryModule",
-    "VirtoCommerce.ImageToolsModule",
-    "VirtoCommerce.NotificationsModule",
-    "VirtoCommerce.ContentModule",
-    "VirtoCommerce.Payment",
-    "VirtoCommerce.StoreModule",
-    "VirtoCommerce.CustomerModule",
-    "VirtoCommerce.CatalogModule",
-    "VirtoCommerce.ShippingModule",
-    "VirtoCommerce.SitemapsModule",
-    "VirtoCommerce.PricingModule",
-    "VirtoCommerce.CartModule",
-    "VirtoCommerce.OrdersModule",
-    "VirtoCommerce.MarketingModule",
-    "VirtoCommerce.SubscriptionModule",
-    "VirtoCommerce.CustomerReviews",
-    "VirtoCommerce.CatalogPersonalizationModule",
-    "VirtoCommerce.CatalogPublishingModule",
-    "VirtoCommerce.DynamicAssociationsModule",
-    "VirtoCommerce.QuoteModule"
+    "Minima.Platform",
+    "Minima.Platform.Security",
+    "Minima.CoreModule",
+    "Minima.TaxModule",
+    "Minima.InventoryModule",
+    "Minima.ImageToolsModule",
+    "Minima.NotificationsModule",
+    "Minima.ContentModule",
+    "Minima.Payment",
+    "Minima.StoreModule",
+    "Minima.CustomerModule",
+    "Minima.CatalogModule",
+    "Minima.ShippingModule",
+    "Minima.SitemapsModule",
+    "Minima.PricingModule",
+    "Minima.CartModule",
+    "Minima.OrdersModule",
+    "Minima.MarketingModule",
+    "Minima.SubscriptionModule",
+    "Minima.CustomerReviews",
+    "Minima.CatalogPersonalizationModule",
+    "Minima.CatalogPublishingModule",
+    "Minima.DynamicAssociationsModule",
+    "Minima.QuoteModule"
   ],
-  "PlatformConfigFile": "D:\\AK\\Code\\Projects\\VC3-DEV-CORE3\\vc-platform\\src\\VirtoCommerce.Platform.Web\\appsettings.json",
+  "PlatformConfigFile": "D:\\AK\\Code\\Projects\\VC3-DEV-CORE3\\vc-platform\\src\\Minima.Platform.Web\\appsettings.json",
   "StatementsDirectory": "Statements",
   "CommandTimeout": 30,
   "Grab": false,

@@ -6,14 +6,14 @@ Creates `vc-package.json` boilerplate with the latest version number of the plat
 
 ### Usage
 ```console
-vc-build Init
-vc-build Init -PlatformVersion 3.52.0
+mn-build Init
+mn-build Init -PlatformVersion 3.52.0
 ```
 ---
 ## Install
 Downloads and installs the platform or modules into the current folder. Versions can be specified as command parameters or defined in `vc-package.json`.
 
-`vc-package.json` maintains the list of installed modules with their versions, allowing `vc-build` to restore the platform and modules on different machines.
+`vc-package.json` maintains the list of installed modules with their versions, allowing `mn-build` to restore the platform and modules on different machines.
 
 **Platform Prerelease Support**: The Install target now supports installation of platform prereleases. When installing a platform with a non-standard version (prerelease version), the system automatically configures the platform asset URL to point to the prereleases blob container.
 
@@ -29,13 +29,13 @@ Since version 3.17.0, stable versions of modules are installed by default.
 
 ### Usage
 ```console
-vc-build install
-vc-build install -GitLabToken $GITLAB_TOKEN
-vc-build install -platform -version <version>
-vc-build install -platform -version <prerelease-version>
-vc-build install -module <module> -version <version>
-vc-build install -module <module>:<version>
-vc-build install -PackageManifestPath some_directory/vc-package.json -DiscoveryPath ../modules -ProbingPath platform_dir/app_data/modules -SkipDependencySolving
+mn-build install
+mn-build install -GitLabToken $GITLAB_TOKEN
+mn-build install -platform -version <version>
+mn-build install -platform -version <prerelease-version>
+mn-build install -module <module> -version <version>
+mn-build install -module <module>:<version>
+mn-build install -PackageManifestPath some_directory/vc-package.json -DiscoveryPath ../modules -ProbingPath platform_dir/app_data/modules -SkipDependencySolving
 ```
 ---
 ## Update
@@ -47,9 +47,9 @@ Updates platform and modules to the latest stable bundle or specified versions. 
 
 ### Usage
 ```console
-vc-build Update
-vc-build Update -v 3
-vc-build Update -edge
+mn-build Update
+mn-build Update -v 3
+mn-build Update -edge
 ```
 ---
 ## ShowDiff
@@ -61,9 +61,9 @@ Shows the differences between current and target versions of the platform and mo
 
 ### Usage
 ```console
-vc-build ShowDiff
-vc-build ShowDiff -v 3
-vc-build ShowDiff -edge
+mn-build ShowDiff
+mn-build ShowDiff -v 3
+mn-build ShowDiff -edge
 ```
 ---
 ## InstallModules
@@ -74,8 +74,8 @@ Installs modules according to `vc-package.json` and solves dependencies.
 
 ### Usage
 ```console
-vc-build InstallModules
-vc-build InstallModules -DiscoveryPath ../modules
+mn-build InstallModules
+mn-build InstallModules -DiscoveryPath ../modules
 ```
 ---
 ## ValidateDependencies
@@ -86,8 +86,8 @@ Validates module dependencies against the installed platform version and other m
 
 ### Usage
 ```console
-vc-build ValidateDependencies
-vc-build ValidateDependencies -DiscoveryPath ../modules
+mn-build ValidateDependencies
+mn-build ValidateDependencies -DiscoveryPath ../modules
 ```
 ---
 ## InstallPlatform
@@ -95,7 +95,7 @@ Installs the platform according to `vc-package.json`.
 
 ### Usage
 ```console
-vc-build InstallPlatform
+mn-build InstallPlatform
 ```
 ---
 ## Uninstall
@@ -106,7 +106,7 @@ Removes specified modules.
 
 ### Usage
 ```console
-vc-build uninstall -Module VirtoCommerce.Cart VirtoCommerce.Catalog
+mn-build uninstall -Module Minima.Cart Minima.Catalog
 ```
 ---
 ## Clean
@@ -114,7 +114,7 @@ Cleans `bin`, `obj`, and `artifacts` directories.
 
 ### Usage
 ```console
-vc-build clean
+mn-build clean
 ```
 ---
 ## Restore
@@ -125,8 +125,8 @@ Executes `dotnet restore`.
 
 ### Usage
 ```console
-vc-build restore
-vc-build restore -NugetConfig <path to nuget config>
+mn-build restore
+mn-build restore -NugetConfig <path to nuget config>
 ```
 ---
 ## Compile
@@ -134,7 +134,7 @@ Executes `dotnet build`.
 
 ### Usage
 ```console
-vc-build compile
+mn-build compile
 ```
 ---
 ## Pack
@@ -142,7 +142,7 @@ Creates NuGet packages by executing `dotnet pack`.
 
 ### Usage
 ```console
-vc-build pack
+mn-build pack
 ```
 ---
 ## Test
@@ -153,8 +153,8 @@ Executes unit tests and generates a coverage report. Can filter tests with `-Tes
 
 ### Usage
 ```console
-vc-build Test
-vc-build Test -TestsFilter "Category!=IntegrationTest"
+mn-build Test
+mn-build Test -TestsFilter "Category!=IntegrationTest"
 ```
 ---
 ## PublishPackages
@@ -166,7 +166,7 @@ Publishes NuGet packages in the `./artifacts` directory with `-Source` and `-Api
 
 ### Usage
 ```console
-vc-build PublishPackages -ApiKey %SomeApiKey%
+mn-build PublishPackages -ApiKey %SomeApiKey%
 ```
 ---
 ## QuickRelease
@@ -177,8 +177,8 @@ Creates a release branch from `dev`, merges it into `master`, increments the ver
 
 ### Usage
 ```console
-vc-build QuickRelease
-vc-build QuickRelease -Force
+mn-build QuickRelease
+mn-build QuickRelease -Force
 ```
 ---
 ## QuickHotfix
@@ -190,9 +190,9 @@ Creates a hotfix branch from the main branch, increments the patch version, merg
 
 ### Usage
 ```console
-vc-build QuickHotfix
-vc-build QuickHotfix -MainBranch main
-vc-build QuickHotfix -CustomVersionPrefix 3.200.2
+mn-build QuickHotfix
+mn-build QuickHotfix -MainBranch main
+mn-build QuickHotfix -CustomVersionPrefix 3.200.2
 ```
 ---
 ## Publish
@@ -200,7 +200,7 @@ Executes `dotnet publish`.
 
 ### Usage
 ```console
-vc-build publish
+mn-build publish
 ```
 ---
 ## WebPackBuild
@@ -208,7 +208,7 @@ Executes `npm ci` and then `npm run webpack:build`.
 
 ### Usage
 ```console
-vc-build WebPackBuild
+mn-build WebPackBuild
 ```
 ---
 ## Compress
@@ -220,7 +220,7 @@ Behavior changes since 3.817
 - Improved stability when ignore inputs are empty or missing.
 
 ### Parameters
-- `ModulesCachePath`: Path for caching downloaded dependency zips. Defaults to `%USERPROFILE%/.vc-build/cache` or `VCBUILD_CACHE` env var if set.
+- `ModulesCachePath`: Path for caching downloaded dependency zips. Defaults to `%USERPROFILE%/.mn-build/cache` or `VCBUILD_CACHE` env var if set.
 - `PrereleasesBlobContainer`: Base URL to download prerelease module packages (used to derive dependency ignore lists). Default: `https://vc3prerelease.blob.core.windows.net/packages/`.
 - `DisableIgnoreDependencyFiles`: When true, disables automatic exclusion of dependency binary files from the archive.
 - `Configuration`: Build configuration (optional, defaults to Release)
@@ -228,24 +228,24 @@ Behavior changes since 3.817
 
 ### Usage
 ```console
-vc-build compress
-vc-build compress -configuration Release
-vc-build Compress -NugetConfig <path to nuget config>
+mn-build compress
+mn-build compress -configuration Release
+mn-build Compress -NugetConfig <path to nuget config>
 ```
 ---
 ## MatchVersions
-Validates version consistency of all VirtoCommerce dependencies across all projects in the solution.
+Validates version consistency of all Minima dependencies across all projects in the solution.
 Checks performed:
 - All module dependencies listed in the manifest are present in project references.
-- All `VirtoCommerce.Platform.*` dependencies in all projects match the version specified in the manifest.
+- All `Minima.Platform.*` dependencies in all projects match the version specified in the manifest.
 - All module dependencies in all projects match the version specified in the manifest.
-- All `VirtoCommerce.Platform.*` dependencies across all projects have the same version.
-- All module dependencies (`VirtoCommerce.*Module`) across all projects have the same version.
+- All `Minima.Platform.*` dependencies across all projects have the same version.
+- All module dependencies (`Minima.*Module`) across all projects have the same version.
 
 If any inconsistencies are found, the build will fail and detailed errors will be logged.
 ### Usage
 ```console
-vc-build MatchVersions
+mn-build MatchVersions
 ```
 ---
 ## PublishModuleManifest
@@ -253,7 +253,7 @@ Updates `modules_v3.json` with information from the current artifact's `module.m
 
 ### Usage
 ```console
-vc-build PublishModuleManifest
+mn-build PublishModuleManifest
 ```
 ---
 ## SonarQubeStart
@@ -271,7 +271,7 @@ Starts the Sonar scanner by executing `dotnet sonarscanner begin`. Accepts param
 
 ### Usage
 ```console
-vc-build SonarQubeStart -SonarBranchName dev -SonarAuthToken *** -RepoName vc-module-marketing
+mn-build SonarQubeStart -SonarBranchName dev -SonarAuthToken *** -RepoName vc-module-marketing
 ```
 ---
 ## SonarQubeEnd
@@ -282,7 +282,7 @@ Executes `dotnet sonarscanner end`. Accepts `SonarAuthToken` parameter.
 
 ### Usage
 ```console
-vc-build SonarQubeEnd -SonarAuthToken %SonarToken%
+mn-build SonarQubeEnd -SonarAuthToken %SonarToken%
 ```
 ---
 ## Release
@@ -295,7 +295,7 @@ Creates a GitHub release. Accepts parameters like `GitHubUser`, `GitHubToken`, `
 
 ### Usage
 ```console
-vc-build release -GitHubUser VirtoCommerce -GitHubToken %token%
+mn-build release -GitHubUser Minima -GitHubToken %token%
 ```
 ---
 ## ClearTemp
@@ -303,7 +303,7 @@ Removes the `.tmp` directory.
 
 ### Usage
 ```console
-vc-build ClearTemp
+mn-build ClearTemp
 ```
 ---
 ## DockerLogin
@@ -316,15 +316,15 @@ Executes `docker login`. Accepts parameters like `DockerRegistryUrl`, `DockerUse
 
 ### Usage
 ```console
-vc-build dockerlogin -DockerRegistryUrl https://myregistry.com -DockerUsername user -DockerPassword 12345
+mn-build dockerlogin -DockerRegistryUrl https://myregistry.com -DockerUsername user -DockerPassword 12345
 ```
 ---
 ## PrepareDockerContext
-Prepares the Docker build context for containerizing VirtoCommerce applications. This target creates a complete Docker build environment by:
+Prepares the Docker build context for containerizing Minima applications. This target creates a complete Docker build environment by:
 
 1. **Creating Docker build context directory**: Sets up `artifacts/docker/` directory structure
-2. **Downloading Docker assets**: Downloads Dockerfile and wait-for-it.sh script from VirtoCommerce Docker repository
-3. **Publishing platform**: Compiles and publishes the VirtoCommerce platform to `artifacts/docker/publish/`
+2. **Downloading Docker assets**: Downloads Dockerfile and wait-for-it.sh script from Minima Docker repository
+3. **Publishing platform**: Compiles and publishes the Minima platform to `artifacts/docker/publish/`
 4. **Copying modules**: Builds and copies all discovered modules to the Docker context
 5. **Setting Docker parameters**: Auto-configures Docker image names, tags, and build context paths
 
@@ -335,17 +335,17 @@ This target is automatically triggered by cloud deployment targets and prepares 
 - `EnvironmentName`: Environment name (used to generate image name if not specified)  
 - `DockerImageName`: Custom Docker image name (optional, auto-generated if not provided)
 - `DockerImageTag`: Custom Docker image tags (optional, timestamp-based tag generated if not provided)
-- `DockerfileUrl`: URL to custom Dockerfile (optional, defaults to VirtoCommerce platform Dockerfile)
-- `WaitScriptUrl`: URL to wait-for-it.sh script (optional, defaults to VirtoCommerce script)
+- `DockerfileUrl`: URL to custom Dockerfile (optional, defaults to Minima platform Dockerfile)
+- `WaitScriptUrl`: URL to wait-for-it.sh script (optional, defaults to Minima script)
 
 ### Usage
 ```console
-vc-build PrepareDockerContext -DockerUsername myuser -EnvironmentName dev
-vc-build PrepareDockerContext -DockerImageName myregistry/myapp -DockerImageTag latest
+mn-build PrepareDockerContext -DockerUsername myuser -EnvironmentName dev
+mn-build PrepareDockerContext -DockerImageName myregistry/myapp -DockerImageTag latest
 ```
 ---
 ## BuildImage
-Builds a Docker image from the prepared Docker context. Uses the Dockerfile and published application files to create a containerized VirtoCommerce application.
+Builds a Docker image from the prepared Docker context. Uses the Dockerfile and published application files to create a containerized Minima application.
 
 ### Parameters
 - `DockerImageName`: Docker image name (required)
@@ -355,9 +355,9 @@ Builds a Docker image from the prepared Docker context. Uses the Dockerfile and 
 
 ### Usage
 ```console
-vc-build BuildImage -DockerImageName myuser/myapp
-vc-build BuildImage -DockerImageName myregistry/myapp -DockerImageTag v1.0.0
-vc-build BuildImage -DockerImageName myapp -DockerfilePath ./custom.dockerfile
+mn-build BuildImage -DockerImageName myuser/myapp
+mn-build BuildImage -DockerImageName myregistry/myapp -DockerImageTag v1.0.0
+mn-build BuildImage -DockerImageName myapp -DockerfilePath ./custom.dockerfile
 ```
 ---
 ## PushImage
@@ -372,8 +372,8 @@ Pushes a Docker image to the specified registry. Requires Docker login credentia
 
 ### Usage
 ```console
-vc-build PushImage -DockerImageName myuser/myapp -DockerUsername myuser -DockerPassword mypass
-vc-build PushImage -DockerImageName myregistry.com/myapp -DockerRegistryUrl myregistry.com
+mn-build PushImage -DockerImageName myuser/myapp -DockerUsername myuser -DockerPassword mypass
+mn-build PushImage -DockerImageName myregistry.com/myapp -DockerRegistryUrl myregistry.com
 ```
 ---
 ## BuildAndPush
@@ -388,7 +388,7 @@ Builds and pushes a Docker image. Accepts parameters like `DockerRegistryUrl`, `
 
 ### Usage
 ```console
-vc-build BuildAndPush -DockerRegistryUrl https://myregistry.com -DockerUsername user -DockerPassword 12345 -DockerfilePath ./dockerfile -DockerImageFullName myimage:dev
+mn-build BuildAndPush -DockerRegistryUrl https://myregistry.com -DockerUsername user -DockerPassword 12345 -DockerfilePath ./dockerfile -DockerImageFullName myimage:dev
 ```
 ---
 ## Configure
@@ -402,7 +402,7 @@ Validates and updates a connection string in `appsettings.json`. Accepts paramet
 
 ### Usage
 ```console
-vc-build Configure -Sql "MsSql connection string" -Redis "Redis connection string" -AzureBlob "Container connection string"
+mn-build Configure -Sql "MsSql connection string" -Redis "Redis connection string" -AzureBlob "Container connection string"
 ```
 ---
 ## CloudEnvUpdate
@@ -415,8 +415,8 @@ Updates applications in the cloud. Accepts the following parameters: `CloudToken
 
 ### Usage
 ```console
-vc-build CloudEnvUpdate -CloudToken <your token> -Manifest <path to application manifest>
-vc-build CloudEnvUpdate -CloudToken <your token> -Manifest <path to application manifest> -RoutesFile <path to routes file>
+mn-build CloudEnvUpdate -CloudToken <your token> -Manifest <path to application manifest>
+mn-build CloudEnvUpdate -CloudToken <your token> -Manifest <path to application manifest> -RoutesFile <path to routes file>
 ```
 ---
 ## CloudEnvSetParameter
@@ -430,7 +430,7 @@ Updates parameters of the cloud environment. Accepts parameters like `CloudToken
 
 ### Usage
 ```console
-vc-build CloudEnvSetParameter -CloudToken <your token> -EnvironmentName <environment name> -HelmParameters platform.config.paramname=somevalue123
+mn-build CloudEnvSetParameter -CloudToken <your token> -EnvironmentName <environment name> -HelmParameters platform.config.paramname=somevalue123
 ```
 ---
 ## CloudEnvStatus
@@ -444,7 +444,7 @@ Waits for health and/or sync statuses of the environment. Accepts parameters lik
 
 ### Usage
 ```console
-vc-build CloudEnvStatus -CloudToken <your token> -EnvironmentName <environment name> -HealthStatus Healthy -SyncStatus Progressing
+mn-build CloudEnvStatus -CloudToken <your token> -EnvironmentName <environment name> -HealthStatus Healthy -SyncStatus Progressing
 ```
 ---
 ## CloudAuth
@@ -456,9 +456,9 @@ Saves a token for accessing the VirtoCloud portal, eliminating the need to use t
 
 ### Usage
 ```console
-vc-build CloudAuth
-vc-build CloudAuth -AzureAD
-vc-build CloudAuth -CloudToken <token>
+mn-build CloudAuth
+mn-build CloudAuth -AzureAD
+mn-build CloudAuth -CloudToken <token>
 ```
 ---
 ## CloudInit
@@ -470,8 +470,8 @@ Creates a new environment. Accepts the `ServicePlan` parameter to specify the se
 
 ### Usage
 ```console
-vc-build CloudInit -EnvironmentName <EnvName>
-vc-build CloudInit -EnvironmentName <EnvName> -ServicePlan F1
+mn-build CloudInit -EnvironmentName <EnvName>
+mn-build CloudInit -EnvironmentName <EnvName> -ServicePlan F1
 ```
 ---
 ## CloudEnvList
@@ -479,7 +479,7 @@ Lists environments with statuses.
 
 ### Usage
 ```console
-vc-build CloudEnvList
+mn-build CloudEnvList
 ```
 ---
 ## CloudEnvRestart
@@ -490,7 +490,7 @@ Restarts the environment.
 
 ### Usage
 ```console
-vc-build CloudEnvRestart -EnvironmentName <EnvName>
+mn-build CloudEnvRestart -EnvironmentName <EnvName>
 ```
 ---
 ## CloudEnvLogs
@@ -503,10 +503,10 @@ Shows environment logs.
 
 ### Usage
 ```console
-vc-build CloudEnvLogs -EnvironmentName <EnvName>
-vc-build CloudEnvLogs -EnvironmentName <EnvName> -Tail 500
-vc-build CloudEnvLogs -EnvironmentName <EnvName> -Filter "error"
-vc-build CloudEnvLogs -EnvironmentName <EnvName> -Tail 1000 -Filter "exception"
+mn-build CloudEnvLogs -EnvironmentName <EnvName>
+mn-build CloudEnvLogs -EnvironmentName <EnvName> -Tail 500
+mn-build CloudEnvLogs -EnvironmentName <EnvName> -Filter "error"
+mn-build CloudEnvLogs -EnvironmentName <EnvName> -Tail 1000 -Filter "exception"
 ```
 ---
 ## CloudDown
@@ -518,19 +518,19 @@ Deletes the environment. Accepts parameters like `Organization` (optional), `Env
 
 ### Usage
 ```console
-vc-build CloudDown -EnvironmentName <EnvName>
-vc-build CloudDown -Organization <OrgName> -EnvironmentName <EnvName>
+mn-build CloudDown -EnvironmentName <EnvName>
+mn-build CloudDown -Organization <OrgName> -EnvironmentName <EnvName>
 ```
 ---
 ## CloudDeploy
-Deploys a custom Docker image to an existing VirtoCommerce cloud environment. This target performs the complete container creation and deployment workflow:
+Deploys a custom Docker image to an existing Minima cloud environment. This target performs the complete container creation and deployment workflow:
 
 1. **Prepares Docker context** (via `PrepareDockerContext` target)
 2. **Builds Docker image** (via `BuildImage` target) 
 3. **Pushes image to registry** (via `PushImage` target)
 4. **Updates environment** with new Docker image coordinates
 
-This is the complete "Container Create" workflow that builds and deploys a containerized VirtoCommerce application.
+This is the complete "Container Create" workflow that builds and deploys a containerized Minima application.
 
 ### Parameters
 - `EnvironmentName`: Target environment name (required)
@@ -544,8 +544,8 @@ This is the complete "Container Create" workflow that builds and deploys a conta
 
 ### Usage
 ```console
-vc-build CloudDeploy -EnvironmentName myenv -DockerUsername myuser -DockerPassword mypass
-vc-build CloudDeploy -EnvironmentName prod -DockerUsername myorg -DockerPassword mypass -DockerImageTag v1.0.0
+mn-build CloudDeploy -EnvironmentName myenv -DockerUsername myuser -DockerPassword mypass
+mn-build CloudDeploy -EnvironmentName prod -DockerUsername myorg -DockerPassword mypass -DockerImageTag v1.0.0
 ```
 ---
 ## CloudUp
@@ -574,7 +574,7 @@ This is the complete "Container Create and Deploy" workflow for new environments
 
 ### Usage
 ```console
-vc-build CloudUp -EnvironmentName newenv -DockerUsername myuser -DockerPassword mypass
-vc-build CloudUp -EnvironmentName production -DockerUsername myorg -DockerPassword mypass -ServicePlan Standard -DockerImageTag v2.0.0
+mn-build CloudUp -EnvironmentName newenv -DockerUsername myuser -DockerPassword mypass
+mn-build CloudUp -EnvironmentName production -DockerUsername myorg -DockerPassword mypass -ServicePlan Standard -DockerImageTag v2.0.0
 ```
 ---

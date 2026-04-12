@@ -1,12 +1,12 @@
-The `vc-build` tool provides a set of targets that allow you to easily install, uninstall, and update platform dependencies through running simple CLI commands.
+The `mn-build` tool provides a set of targets that allow you to easily install, uninstall, and update platform dependencies through running simple CLI commands.
 
 ## Install
 
 ```console
-vc-build install (with no args)
-vc-build install -platform -version <version>
-vc-build install -module <module> -version <version>
-vc-build install -module <module>:<version>
+mn-build install (with no args)
+mn-build install -platform -version <version>
+mn-build install -module <module> -version <version>
+mn-build install -module <module>:<version>
 ```
 
 This command downloads and installs the platform or modules into the relevant folder with the versions transferred as command parameters or defined in `vc-package.json`.
@@ -23,18 +23,18 @@ This command downloads and installs the platform or modules into the relevant fo
     {
       "Name": "GithubReleases",
       "ModuleSources": [
-        "https://raw.githubusercontent.com/VirtoCommerce/vc-modules/master/modules_v3.json"
+        "https://raw.githubusercontent.com/Minima/vc-modules/master/modules_v3.json"
       ],
       "Modules": [
         {
-          "Id": "VirtoCommerce.Assets",
+          "Id": "Minima.Assets",
           "Version": "3.200.0"
         }
       ]
     },
     {
       "Name": "GithubPrivateRepos",
-      "Owner": "VirtoCommerce",
+      "Owner": "Minima",
       "Modules":[
         {
           "Id": "vc-module-custom",
@@ -82,7 +82,7 @@ This command downloads and installs the platform or modules into the relevant fo
       "Modules": [
         {
           "JobId": "3679907995",
-          "ArtifactName": "artifacts/VirtoCommerce.Catalog_3.255.0.zip",
+          "ArtifactName": "artifacts/Minima.Catalog_3.255.0.zip",
           "Id": "42920184"
         }
       ]
@@ -91,11 +91,11 @@ This command downloads and installs the platform or modules into the relevant fo
       "Name": "Local",
       "Modules": [
         {
-          "Path": "C:/projects/vc/vc-module-saas/artifacts/VirtoCommerce.SaaS_3.214.0.zip",
+          "Path": "C:/projects/vc/vc-module-saas/artifacts/Minima.SaaS_3.214.0.zip",
           "Id": "OptionalForThisSource"
         },
         {
-          "Path": "C:\\projects\\vc\\vc-module-catalog\\artifacts\\VirtoCommerce.Catalog"
+          "Path": "C:\\projects\\vc\\vc-module-catalog\\artifacts\\Minima.Catalog"
         }
       ]
     }
@@ -105,9 +105,9 @@ This command downloads and installs the platform or modules into the relevant fo
 }
 ```
 
-The `vc-package.json` file is used to maintain the list of installed modules with their versions. This allows `vc-build` to easily restore the platform with modules on a different machine, such as a build server, without all those packages.
+The `vc-package.json` file is used to maintain the list of installed modules with their versions. This allows `mn-build` to easily restore the platform with modules on a different machine, such as a build server, without all those packages.
 
-- `vc-build install (with no args)`
+- `mn-build install (with no args)`
 
 This target downloads and installs the platform and modules into the relevant folder with versions described in `vc-package.json`.
 If `vc-package.json` is not found in the local folder, the command will by default download and install the latest stable bundle. If -Edge parameter has been used then this target will download the latest available platform and modules marked as `commerce`.
@@ -116,21 +116,21 @@ By default, the `install` target will install all modules listed as dependencies
 
 ### Examples:
 ```console
-vc-build install
+mn-build install
 ```
 
-- `vc-build install -platform -version <version>`
+- `mn-build install -platform -version <version>`
 
 This will fetch and install the platform with the specific version. If the platform with the specified version does not exist in the registry, the request will fail.
 If no version is specified, the latest platform version will be installed.
 
 ### Examples:
 ```console
-vc-build install -platform
-vc-build install -platform -version 3.55.0
+mn-build install -platform
+mn-build install -platform -version 3.55.0
 ```
 
-- `vc-build install -module -version <version>`
+- `mn-build install -module -version <version>`
 
 This will install the specified module version. The request will fail in case the version has not been published to the registry.
 If no version is specified, the latest module version will be installed.
@@ -142,30 +142,30 @@ This command also modifies the `vc-package.json` file with the installed depende
 
 ### Examples:
 ```console
-vc-build install -module VirtoCommerce.Cart
-vc-build install -module VirtoCommerce.Cart -version 3.12.0
-vc-build install -module VirtoCommerce.Cart:3.12.0 VirtoCommerce.Core:3.20.0
+mn-build install -module Minima.Cart
+mn-build install -module Minima.Cart -version 3.12.0
+mn-build install -module Minima.Cart:3.12.0 Minima.Core:3.20.0
 ```
 
-- `vc-build install -stable [-v <bundle name> -BundlesUrl <custom url to bundles json>]`
+- `mn-build install -stable [-v <bundle name> -BundlesUrl <custom url to bundles json>]`
 
 Install also supports working with bundles. A bundle file is a JSON object with key-value pairs that contains names of bundles and URLs to their manifests.
 
 ### Examples:
 ```console
-vc-build install -stable # will install modules from the latest bundle
-vc-build install -stable -v "2" # will install modules from the bundle named 2
-vc-build install -stable -bundlesUrl https://somedomain.com/bundles.json # will use a custom URL for bundle search
+mn-build install -stable # will install modules from the latest bundle
+mn-build install -stable -v "2" # will install modules from the bundle named 2
+mn-build install -stable -bundlesUrl https://somedomain.com/bundles.json # will use a custom URL for bundle search
 ```
 
 ## Update
 
 ```console
-vc-build update (with no args)
-vc-build update -edge
-vc-build update -v 5
-vc-build update -platform -version <version>
-vc-build update -module <module> -version <version>
+mn-build update (with no args)
+mn-build update -edge
+mn-build update -v 5
+mn-build update -platform -version <version>
+mn-build update -module <module> -version <version>
 ```
 This command will update the platform and all modules linked to the version specified by `<version>`, respecting semver.
 If `<version>` is not specified, the component will be updated to the latest version.
@@ -180,27 +180,27 @@ You can specify the bundle to update your environment to specific versions using
 
 ### Examples:
 ```console
-vc-build update
-vc-build update -platform
-vc-build update -platform -version 3.14.0
-vc-build update -module VirtoCommerce.Cart
-vc-build update -module VirtoCommerce.Cart -version 3.30.0
+mn-build update
+mn-build update -platform
+mn-build update -platform -version 3.14.0
+mn-build update -module Minima.Cart
+mn-build update -module Minima.Cart -version 3.30.0
 ```
 
 ## Uninstall
 ```console
-vc-build uninstall -module <module>
+mn-build uninstall -module <module>
 ```
 This uninstalls the module in question and completely removes all modules that depend on it.
 It also removes uninstalled modules from your `vc-package.json` file.
 
 ### Examples:
 ```console
-vc-build uninstall -module VirtoCommerce.Cart
+mn-build uninstall -module Minima.Cart
 ```
 
 ## Configure
 ```console
-vc-build configure -sql <sql connection string> -redis <redis connection string> -AzureBlob <container connection string> [-appsettingsPath ./appsettings.json]
+mn-build configure -sql <sql connection string> -redis <redis connection string> -AzureBlob <container connection string> [-appsettingsPath ./appsettings.json]
 ```
 This command will check given connection strings and update appsettings.json

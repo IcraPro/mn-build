@@ -60,7 +60,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added Telemetry.
 - Added MakeLatest parameter.
-- Added versions of vc-build and os to the telemetry.
+- Added versions of mn-build and os to the telemetry.
 - Increased default http timeout to 180 seconds.
 - Added switch for user-friendly choose auth provider.
 - Added local modules source.
@@ -237,7 +237,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.0.0] - 2021-08-05
 ### Changed
-- vc-build was updated to .Net 5
+- mn-build was updated to .Net 5
 - Documentation was moved from vc-platform repo
 - Updated dependencies
 ### Added
@@ -425,7 +425,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for Pull Request in SonarQubeStart Target
 ### Fixed
 - An issue with dependencies filter in Compress Target
-- An issue with packaging vc-build with 3rd party tools https://github.com/nuke-build/nuke/issues/437
+- An issue with packaging mn-build with 3rd party tools https://github.com/nuke-build/nuke/issues/437
 ### Changed
 - NUKE Execution Engine updated to 0.24.7
 - GitVersion updated to 5.2.4
