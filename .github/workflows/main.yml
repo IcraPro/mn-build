@@ -103,7 +103,7 @@ jobs:
       - name: Publish to Private NuGet
         if: ${{ (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main') && github.event_name != 'workflow_dispatch' }}
         run: |
-          dotnet nuget push artifacts/*.nupkg \
+          dotnet nuget push src/Minima.Build/artifacts/*.nupkg \
             --source ${{ secrets.PRIVATE_NUGET_URL }} \
             --api-key ${{ secrets.PRIVATE_NUGET_KEY }} \
             --skip-duplicate
