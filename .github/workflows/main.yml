@@ -44,11 +44,11 @@ jobs:
       #       --password ${{ secrets.PRIVATE_NUGET_KEY }} \
       #       --store-password-in-clear-text
 
-      - name: Install Minima.GlobalTool
+      - name: Install Minima.BuildTool
         run: |
           dotnet pack
-          dotnet tool uninstall -g Minima.GlobalTool || true
-          dotnet tool install -g Minima.GlobalTool --add-source ./src/Minima.Build/artifacts
+          dotnet tool uninstall -g Minima.BuildTool || true
+          dotnet tool install -g Minima.BuildTool --add-source ./src/Minima.Build/artifacts
 
       - name: Set up Java 17
         uses: actions/setup-java@v3
@@ -119,4 +119,4 @@ jobs:
           draft: false
           prerelease: ${{ github.ref != 'refs/heads/main' }}
           make_latest: ${{ github.ref == 'refs/heads/main' }}
-          files: artifacts/Minima.GlobalTool.${{ steps.image.outputs.shortVersion }}.nupkg
+          files: artifacts/Minima.BuildTool.${{ steps.image.outputs.shortVersion }}.nupkg
