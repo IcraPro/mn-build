@@ -1,0 +1,27 @@
+name: Release workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      VCBUILD_DISABLE_RELEASE_APPROVAL: "true"
+    steps:
+
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.REPO_TOKEN }}
+
+      - name: Install Minima.GlobalTool
+        uses: IcraPro/mn-github-actions/setup-mnbuild@main
+
+      - name: Setup Git Credentials
+        uses: IcraPro/mn-github-actions/setup-git-credentials-github@main
+        with:
+          githubToken: ${{ secrets.REPO_TOKEN }}
+
+      - name: Run mn-build QuickRelease
+        run: mn-build QuickRelease -MainBranch main

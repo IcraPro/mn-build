@@ -1,0 +1,121 @@
+name: mn-build CI
+
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+      - '.github/**'
+      - 'docs/**'
+      - 'build/**'
+      - 'README.md'
+      - 'LICENSE'
+    branches:
+      [main, dev]
+  pull_request:
+    branches:
+      [dev]
+    paths-ignore:
+      - 'docs/**'
+      - 'README.md'
+      - 'LICENSE'
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    env:
+      SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
+      GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
+      NUGET_KEY: ${{ secrets.NUGET_KEY }}
+      BLOB_SAS: ${{ secrets.BLOB_TOKEN }}
+      PRIVATE_NUGET_URL: https://nuget.alaplihaber.com/v3/index.json
+      PRIVATE_NUGET_KEY: ${{ secrets.PRIVATE_NUGET_KEY }}
+
+    steps:
+
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Add Private NuGet Source
+        run: |
+          dotnet nuget add source ${{ env.PRIVATE_NUGET_URL }} \
+            --name private-nuget \
+            --username github \
+            --password ${{ secrets.PRIVATE_NUGET_KEY }} \
+            --store-password-in-clear-text
+
+      - name: Install Minima.GlobalTool
+        run: |
+          dotnet pack
+          dotnet tool install -g Minima.GlobalTool --add-source ./src/VirtoCommerce.Build/artifacts
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Get changelog
+        id: changelog
+        uses: IcraPro/mn-github-actions/changelog-generator@main
+
+      - name: Get Image Version
+        uses: IcraPro/mn-github-actions/get-image-version@main
+        id: image
+        with:
+          projectType: "platform"
+
+      - name: Add version suffix
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: IcraPro/mn-github-actions/add-version-suffix@main
+        with:
+          versionSuffix: ${{ steps.image.outputs.suffix }}
+
+      - name: SonarCloud Begin
+        uses: IcraPro/mn-github-actions/sonar-scanner-begin@main
+
+      - name: Build
+        run: mn-build Compile
+
+      - name: Unit Tests
+        run: mn-build Test -skip
+
+      - name: Shelltest
+        shell: bash
+        working-directory: shelltests
+        run: |
+            sudo apt install shelltestrunner
+            shelltest .
+
+      - name: SonarCloud End
+        uses: IcraPro/mn-github-actions/sonar-scanner-end@main
+
+      - name: Quality Gate
+        uses: IcraPro/mn-github-actions/sonar-quality-gate@main
+        with:
+          login: ${{secrets.SONAR_TOKEN}}
+
+      - name: Publish Nuget
+        if: ${{ (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main') && github.event_name != 'workflow_dispatch' }}
+        uses: IcraPro/mn-github-actions/publish-nuget@main
+
+      - name: Publish to Private NuGet
+        if: ${{ (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main') && github.event_name != 'workflow_dispatch' }}
+        run: |
+          dotnet nuget push artifacts/*.nupkg \
+            --source https://nuget.alaplihaber.com \
+            --api-key ${{ secrets.PRIVATE_NUGET_KEY }} \
+            --skip-duplicate
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        id: create_release
+        if: ${{ (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main') && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.REPO_TOKEN }}
+          tag_name: ${{ steps.image.outputs.shortVersion }}
+          body: ${{ steps.changelog.outputs.changelog }}
+          draft: false
+          prerelease: ${{ github.ref != 'refs/heads/main' }}
+          make_latest: ${{ github.ref == 'refs/heads/main' }}
+          files: artifacts/Minima.GlobalTool.${{ steps.image.outputs.shortVersion }}.nupkg
