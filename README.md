@@ -3,9 +3,9 @@
 
 The Minima Global Tool (mn-build) is the official CLI [.NET Core GlobalTool](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools) that helps you build, test and deploy releases, create and push NuGet packages, provide package management for projects based on Minima, and automate common DevOps tasks. It is powered by [nuke.build](https://nuke.build/) - a cross-platform build automation system with C# DSL, that provides an approach to embrace existing IDE tooling and state where everyone in a team can manage and change the build scenarios. This allows writing build scenarios in C# and debugging them in Visual Studio. Also, along with cross-platform support, it was the best choice for us to build our own build automation solution on top of this project.
 
-Check out [the project source code](https://github.com/Minima/mn-build) for the implementation details.
+Check out [the project source code](https://github.com/IcraPro/mn-build) for the implementation details.
 
-![mn-build CLI](docs/media/cli-tools-1.png)
+![mn-build CLI](docs/media/cli-tools-1.en.png)
 
 ## The key features:
 
