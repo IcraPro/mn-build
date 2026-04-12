@@ -95,9 +95,9 @@ jobs:
         with:
           login: ${{secrets.SONAR_TOKEN}}
 
-      - name: Publish Nuget
-        if: ${{ (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main') && github.event_name != 'workflow_dispatch' }}
-        uses: IcraPro/mn-github-actions/publish-nuget@main
+      # - name: Publish Nuget
+      #   if: ${{ (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main') && github.event_name != 'workflow_dispatch' }}
+      #   uses: IcraPro/mn-github-actions/publish-nuget@main
 
       - name: Publish to Private NuGet
         if: ${{ (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main') && github.event_name != 'workflow_dispatch' }}
