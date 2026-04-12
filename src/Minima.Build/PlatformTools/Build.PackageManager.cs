@@ -81,7 +81,7 @@ namespace Minima.Build
         public static bool Edge { get; set; }
 
         [Parameter("Url to Bundles file")]
-        public static string BundlesUrl { get; set; } = "https://raw.githubusercontent.com/IcraPro/mn-modules/master/bundles/stable.json";
+        public static string BundlesUrl { get; set; } = "https://raw.githubusercontent.com/IcraPro/mn-modules/main/bundles/stable.json";
 
         [Parameter("Backup file path")] public static AbsolutePath BackupFile { get; set; } = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
 
