@@ -123,12 +123,12 @@ internal partial class Build : NukeBuild
     [Parameter("Path to folder with git clones of modules repositories")]
     public static AbsolutePath ModulesFolderPath { get; set; }
 
-    [Parameter("Repo Organization/User")] public static string RepoOrg { get; set; } = "VirtoCommerce";
+    [Parameter("Repo Organization/User")] public static string RepoOrg { get; set; } = "IcraPro";
 
     [Parameter("Repo Name")] public static string RepoName { get; set; }
 
-    [Parameter("Sonar Organization (\"virto-commerce\" by default)")]
-    public static string SonarOrg { get; set; } = "virto-commerce";
+    [Parameter("Sonar Organization (\"icra-pro\" by default)")]
+    public static string SonarOrg { get; set; } = "icra-pro";
 
     [Parameter("Path to NuGet config")] public static AbsolutePath NugetConfig { get; set; }
 
@@ -171,7 +171,7 @@ internal partial class Build : NukeBuild
     public static string SonarPRProvider { get; set; }
 
     [Parameter("Modules.json repo URL")]
-    public static string ModulesJsonRepoUrl { get; set; } = "https://github.com/VirtoCommerce/vc-modules.git";
+    public static string ModulesJsonRepoUrl { get; set; } = "https://github.com/IcraPro/mn-modules.git";
 
     [Parameter("Force parameter for git checkout")]
     public static bool Force { get; set; }
@@ -180,7 +180,7 @@ internal partial class Build : NukeBuild
     public static AbsolutePath ArtifactsDirectory { get; set; } = RootDirectory / "artifacts";
 
     [Parameter("Directory containing modules.json")]
-    public static string ModulesJsonDirectoryName { get; set; } = "vc-modules";
+    public static string ModulesJsonDirectoryName { get; set; } = "mn-modules";
 
     [Parameter("Default (start) project name")]
     public static string DefaultProject { get; set; } = ".Web";
@@ -200,14 +200,14 @@ internal partial class Build : NukeBuild
     protected static GitRepository GitRepository => GitRepository.FromLocalDirectory(RootDirectory / ".git");
 
     protected static AbsolutePath SourceDirectory => RootDirectory / "src";
-    protected static bool IsPlatformSource => Directory.Exists(Path.Combine(SourceDirectory, "VirtoCommerce.Platform.Web"));
+    protected static bool IsPlatformSource => Directory.Exists(Path.Combine(SourceDirectory, "Minima.Platform.Web"));
     protected static AbsolutePath TestsDirectory => RootDirectory / "tests";
     protected static AbsolutePath SamplesDirectory => RootDirectory / "samples";
 
     protected static AbsolutePath ModulesLocalDirectory => ArtifactsDirectory / ModulesJsonDirectoryName;
 
     protected static Project WebProject => Solution?.AllProjects.FirstOrDefault(x =>
-        x.Name.EndsWith(DefaultProject) || x.Name.EndsWith("VirtoCommerce.Storefront") ||
+        x.Name.EndsWith(DefaultProject) || x.Name.EndsWith("Minima.Storefront") ||
         x.Name.EndsWith("Minima.Build") || x.Name.EndsWith("Minima.Build"));
 
     protected static AbsolutePath ModuleManifestFile => WebProject?.Directory / "module.manifest";
@@ -242,7 +242,7 @@ internal partial class Build : NukeBuild
     protected static string GitRepositoryName => GitRepository.Identifier.Split('/')[1];
 
     protected static string ModulePackageUrl => CustomModulePackageUri.IsNullOrEmpty()
-        ? $"https://github.com/VirtoCommerce/{GitRepositoryName}/releases/download/{ReleaseVersion}/{ModuleManifest.Id}_{ReleaseVersion}.zip"
+        ? $"https://github.com/IcraPro/{GitRepositoryName}/releases/download/{ReleaseVersion}/{ModuleManifest.Id}_{ReleaseVersion}.zip"
         : CustomModulePackageUri;
 
     protected static GitRepository ModulesRepository => GitRepository.FromUrl(ModulesJsonRepoUrl);
@@ -778,8 +778,8 @@ internal partial class Build : NukeBuild
             var projectPublishPath = ArtifactsDirectory / "publish" / $"{WebProject.Name}.dll";
             var swaggerJsonPath = ArtifactsDirectory / "swagger.json";
             var currentDirectory = Directory.GetCurrentDirectory();
-            Directory.SetCurrentDirectory(RootDirectory / "src" / "VirtoCommerce.Platform.Web");
-            swashbuckle.Invoke($"tofile --output {swaggerJsonPath} {projectPublishPath} VirtoCommerce.Platform");
+            Directory.SetCurrentDirectory(RootDirectory / "src" / "Minima.Platform.Web");
+            swashbuckle.Invoke($"tofile --output {swaggerJsonPath} {projectPublishPath} Minima.Platform");
             Directory.SetCurrentDirectory(currentDirectory);
 
             var responseContent = await SendSwaggerSchemaToValidator(_httpClient, swaggerJsonPath, SwaggerValidatorUri);
@@ -1360,7 +1360,7 @@ internal partial class Build : NukeBuild
 
         if (IsModule)
         {
-            const string moduleIgnoreUrlTemplate = "https://raw.githubusercontent.com/VirtoCommerce/vc-platform/{0}/module.ignore";
+            const string moduleIgnoreUrlTemplate = "https://raw.githubusercontent.com/IcraPro/mn-platform/{0}/module.ignore";
             if (string.IsNullOrEmpty(GlobalModuleIgnoreFileUrl))
             {
                 var platformVersionString = Version.TryParse(ModuleManifest.PlatformVersion, out var platformVersion) ? platformVersion.ToString(majorMinorPatch) : "dev";
@@ -1407,7 +1407,7 @@ internal partial class Build : NukeBuild
 
     private static async Task<List<ExternalModuleManifest>> GetAllModuleManifests()
     {
-        const string defaultModuleManifest = "https://raw.githubusercontent.com/VirtoCommerce/vc-modules/master/modules_v3.json";
+        const string defaultModuleManifest = "https://raw.githubusercontent.com/IcraPro/mn-modules/master/modules_v3.json";
         var json = await HttpTasks.HttpDownloadStringAsync(defaultModuleManifest);
 
         return JsonConvert.DeserializeObject<List<ExternalModuleManifest>>(json);

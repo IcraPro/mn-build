@@ -29,10 +29,10 @@ namespace Minima.Build
         [Parameter("Platform or Module version to install", Name = "Version")]
         public static string VersionToInstall { get; set; }
 
-        private const string _packageManifestPathDefaultValue = "./vc-package.json";
+        private const string _packageManifestPathDefaultValue = "./mn-package.json";
         private static string _packageManifestPath = _packageManifestPathDefaultValue;
 
-        [Parameter("vc-package.json path")]
+        [Parameter("mn-package.json path")]
         public static string PackageManifestPath
         {
             get
@@ -47,7 +47,7 @@ namespace Minima.Build
             set => _packageManifestPath = value;
         }
 
-        [Parameter("Install params (install -module VirtoCommerce.Core:1.2.3)")]
+        [Parameter("Install params (install -module Minima.Core:1.2.3)")]
         public static string[] Module { get; set; }
 
         [Parameter("Skip dependency solving")]
@@ -81,7 +81,7 @@ namespace Minima.Build
         public static bool Edge { get; set; }
 
         [Parameter("Url to Bundles file")]
-        public static string BundlesUrl { get; set; } = "https://raw.githubusercontent.com/VirtoCommerce/vc-modules/master/bundles/stable.json";
+        public static string BundlesUrl { get; set; } = "https://raw.githubusercontent.com/IcraPro/mn-modules/master/bundles/stable.json";
 
         [Parameter("Backup file path")] public static AbsolutePath BackupFile { get; set; } = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
 
@@ -368,7 +368,7 @@ namespace Minima.Build
         private static bool IsPlatformInstallationNeeded(string version)
         {
             var result = true;
-            var platformWebDllPath = CurrentDirectory / "VirtoCommerce.Platform.Web.dll";
+            var platformWebDllPath = CurrentDirectory / "Minima.Platform.Web.dll";
             var newVersion = new Version(version);
 
             if (File.Exists(platformWebDllPath))
@@ -804,7 +804,7 @@ namespace Minima.Build
                 }
                 else // Create new
                 {
-                    Log.Information("vc-package.json does not exist.");
+                    Log.Information("mn-package.json does not exist.");
                     Log.Information("Looking for the platform release");
                     var platformRelease = await GithubReleaseService.GetPlatformRelease(GitHubToken, VersionToInstall);
                     result = PackageManager.CreatePackageManifest(platformRelease.TagName);

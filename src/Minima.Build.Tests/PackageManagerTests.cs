@@ -27,7 +27,7 @@ namespace Minima.Build.Tests
             // Arrange
             var platformVersion = "3.2.1";
             var platformAssetsUrl =
-                "https://raw.githubusercontent.com/VirtoCommerce/vc-modules/master/modules_v3_alt.json";
+                "https://raw.githubusercontent.com/IcraPro/mn-modules/master/modules_v3_alt.json";
             // Act
             var manifest = (MixedPackageManifest)PackageManager.CreatePackageManifest(platformVersion, platformAssetsUrl);
 
@@ -75,7 +75,7 @@ namespace Minima.Build.Tests
         {
             // Arrange
             var manifest = PackageManager.CreatePackageManifest("1.0.0");
-            var path = "./test-vc-package.json";
+            var path = "./test-mn-package.json";
 
             // Act
             PackageManager.ToFile(manifest, path.ToAbsolutePath());
@@ -92,7 +92,7 @@ namespace Minima.Build.Tests
         {
             // Arrange
             var manifest = PackageManager.CreatePackageManifest("1.0.0");
-            var path = "./test-vc-package.json";
+            var path = "./test-mn-package.json";
             PackageManager.ToFile(manifest, path.ToAbsolutePath());
 
             // Act
