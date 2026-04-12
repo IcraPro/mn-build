@@ -1407,7 +1407,7 @@ internal partial class Build : NukeBuild
 
     private static async Task<List<ExternalModuleManifest>> GetAllModuleManifests()
     {
-        const string defaultModuleManifest = "https://raw.githubusercontent.com/IcraPro/mn-modules/master/modules_v3.json";
+        const string defaultModuleManifest = "https://raw.githubusercontent.com/IcraPro/mn-modules/main/modules_v3.json";
         var json = await HttpTasks.HttpDownloadStringAsync(defaultModuleManifest);
 
         return JsonConvert.DeserializeObject<List<ExternalModuleManifest>>(json);

@@ -10,7 +10,7 @@ namespace PlatformTools
 {
     public static class PackageManager
     {
-        private const string _defaultModuleManifest = "https://raw.githubusercontent.com/IcraPro/mn-modules/master/modules_v3.json";
+        private const string _defaultModuleManifest = "https://raw.githubusercontent.com/IcraPro/mn-modules/main/modules_v3.json";
 
         public static ManifestBase CreatePackageManifest(string platformVersion, string platformAssetUrl)
         {

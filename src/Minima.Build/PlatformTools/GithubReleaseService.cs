@@ -78,7 +78,7 @@ namespace PlatformTools
 
         internal static async Task<string> GetLatestPlatformVersion()
         {
-            const string PlatformBuildPropsUrl = "https://raw.githubusercontent.com/IcraPro/mn-platform/refs/heads/master/Directory.Build.props";
+            const string PlatformBuildPropsUrl = "https://raw.githubusercontent.com/IcraPro/mn-platform/refs/heads/main/Directory.Build.props";
             var response = await HttpTasks.HttpDownloadStringAsync(PlatformBuildPropsUrl);
             var version = ParseVersionFromProps(response);
             return version;

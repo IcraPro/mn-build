@@ -23,7 +23,7 @@ This command downloads and installs the platform or modules into the relevant fo
     {
       "Name": "GithubReleases",
       "ModuleSources": [
-        "https://raw.githubusercontent.com/Minima/vc-modules/master/modules_v3.json"
+        "https://raw.githubusercontent.com/IcraPro/mn-modules/main/modules_v3.json"
       ],
       "Modules": [
         {

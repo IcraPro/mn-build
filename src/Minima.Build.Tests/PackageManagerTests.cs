@@ -27,7 +27,7 @@ namespace Minima.Build.Tests
             // Arrange
             var platformVersion = "3.2.1";
             var platformAssetsUrl =
-                "https://raw.githubusercontent.com/IcraPro/mn-modules/master/modules_v3_alt.json";
+                "https://raw.githubusercontent.com/IcraPro/mn-modules/main/modules_v3_alt.json";
             // Act
             var manifest = (MixedPackageManifest)PackageManager.CreatePackageManifest(platformVersion, platformAssetsUrl);
 
