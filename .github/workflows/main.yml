@@ -27,7 +27,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
       NUGET_KEY: ${{ secrets.NUGET_KEY }}
       BLOB_SAS: ${{ secrets.BLOB_TOKEN }}
-      PRIVATE_NUGET_URL: https://nuget.alaplihaber.com/v3/index.json
+      PRIVATE_NUGET_URL: ${{ secrets.PRIVATE_NUGET_URL }}
       PRIVATE_NUGET_KEY: ${{ secrets.PRIVATE_NUGET_KEY }}
 
     steps:
