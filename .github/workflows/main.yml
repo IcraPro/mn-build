@@ -47,6 +47,7 @@ jobs:
       - name: Install Minima.GlobalTool
         run: |
           dotnet pack
+          dotnet tool uninstall -g Minima.GlobalTool || true
           dotnet tool install -g Minima.GlobalTool --add-source ./src/Minima.Build/artifacts
 
       - name: Set up Java 17
@@ -102,7 +103,7 @@ jobs:
       - name: Publish to Private NuGet
         if: ${{ (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main') && github.event_name != 'workflow_dispatch' }}
         run: |
-          dotnet nuget push artifacts/*.nupkg \
+          dotnet nuget push src/Minima.Build/artifacts/*.nupkg \
             --source ${{ secrets.PRIVATE_NUGET_URL }} \
             --api-key ${{ secrets.PRIVATE_NUGET_KEY }} \
             --skip-duplicate
