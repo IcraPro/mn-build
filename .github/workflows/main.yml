@@ -36,13 +36,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Add Private NuGet Source
-        run: |
-          dotnet nuget add source ${{ env.PRIVATE_NUGET_URL }} \
-            --name private-nuget \
-            --username github \
-            --password ${{ secrets.PRIVATE_NUGET_KEY }} \
-            --store-password-in-clear-text
+      # - name: Add Private NuGet Source
+      #   run: |
+      #     dotnet nuget add source ${{ env.PRIVATE_NUGET_URL }} \
+      #       --name private-nuget \
+      #       --username github \
+      #       --password ${{ secrets.PRIVATE_NUGET_KEY }} \
+      #       --store-password-in-clear-text
 
       - name: Install Minima.GlobalTool
         run: |
@@ -103,7 +103,7 @@ jobs:
         if: ${{ (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main') && github.event_name != 'workflow_dispatch' }}
         run: |
           dotnet nuget push artifacts/*.nupkg \
-            --source https://nuget.alaplihaber.com \
+            --source ${{ secrets.PRIVATE_NUGET_URL }} \
             --api-key ${{ secrets.PRIVATE_NUGET_KEY }} \
             --skip-duplicate
 
