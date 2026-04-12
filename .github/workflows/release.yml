@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.REPO_TOKEN }}
 
-      - name: Install Minima.GlobalTool
+      - name: Install Minima.BuildTool
         uses: IcraPro/mn-github-actions/setup-mnbuild@main
 
       - name: Setup Git Credentials

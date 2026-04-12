@@ -26,31 +26,31 @@ Check out [the project source code](https://github.com/Minima/mn-build) for the 
 - get idempotent SQL scripts for all modules EF migrations with the ability to apply them in a specific order without installed platform and source code (helpful for migration from Minima platform version 2 (latest) to version 3)
 
 ## Before you start
-Before you start using `Minima.GlobalTool`, install the following in order to use all its functionality:
+Before you start using `Minima.BuildTool`, install the following in order to use all its functionality:
 
 - .NET SDK 5.x
 - Node.js 12.x
 - Git SCM
 
 ## Installation
-Run this command to install `Minima.GlobalTool` on your machine:
+Run this command to install `Minima.BuildTool` on your machine:
 ```console
 
-dotnet tool install Minima.GlobalTool  -g
+dotnet tool install Minima.BuildTool  -g
 
 ```
 
 ## Updating
-Run this command to update `Minima.GlobalTool` to the latest version:
+Run this command to update `Minima.BuildTool` to the latest version:
 
 ```console
 
-dotnet tool update Minima.GlobalTool -g
+dotnet tool update Minima.BuildTool -g
 
 ```
 
 ## Getting started
-To use `Minima.GlobalTool` by invoke the tool run the following command: `mn-build`
+To use `Minima.BuildTool` by invoke the tool run the following command: `mn-build`
 
 To get the list of all targets:
 ```console
