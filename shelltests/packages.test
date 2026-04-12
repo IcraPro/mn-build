@@ -1,17 +1,17 @@
 # Install Bundle #5
-mn-build install -stable -v 5
->>>2
->>>= 0
+#mn-build install -stable -v 5
+#>>>2
+#>>>= 0
 
 # Update to Bundle #6
-mn-build update -v 6
->>>2
->>>= 0
+#mn-build update -v 6
+#>>>2
+#>>>= 0
 
 # Update to the latest Bundle
-mn-build update
->>>2
->>>= 0
+#mn-build update
+#>>>2
+#>>>= 0
 
 # Update to the edge
 # mn-build update -edge
