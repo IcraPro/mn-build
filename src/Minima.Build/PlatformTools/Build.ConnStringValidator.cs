@@ -66,7 +66,7 @@ namespace Minima.Build
 
         private static void UpdateMsSqlConnectionString(string value)
         {
-            UpdateConnectionString("VirtoCommerce", value);
+            UpdateConnectionString("Minima", value);
         }
 
         private static void UpdateConnectionString(string name, string value)

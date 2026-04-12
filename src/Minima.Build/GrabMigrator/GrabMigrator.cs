@@ -20,7 +20,7 @@ namespace GrabMigrator
     {
         public static void Do(string configFilePath)
         {
-            OutBox("VirtoCommerce EF-migration grabbing and applying tool.");
+            OutBox("Minima EF-migration grabbing and applying tool.");
 
             if (!string.IsNullOrEmpty(configFilePath))
             {
@@ -86,7 +86,7 @@ namespace GrabMigrator
                 var connectionString = GetConnectionString(config, connectionStrings, module);
 
                 // Fallback connection string key is always "VirtoCommerce"
-                connectionString = connectionString.EmptyToNull() ?? connectionStrings["VirtoCommerce"];
+                connectionString = connectionString.EmptyToNull() ?? connectionStrings["Minima"];
 
                 using var connection = (IDbConnection)new SqlConnection(connectionString);
                 // One connection and transaction per each module

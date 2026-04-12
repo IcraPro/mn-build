@@ -13,7 +13,7 @@ namespace PlatformTools
                 return defaultDiscoveryPath;
             }
 
-            var virtoSection = configuration.GetSection("VirtoCommerce");
+            var virtoSection = configuration.GetSection("Minima");
             var result = virtoSection.GetValue("DiscoveryPath", defaultDiscoveryPath);
             return result;
         }

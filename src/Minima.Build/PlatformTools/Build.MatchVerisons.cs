@@ -12,10 +12,10 @@ namespace Minima.Build
 {
     internal partial class Build
     {
-        [GeneratedRegex(@"(VirtoCommerce.+)Module", RegexOptions.Compiled)]
+        [GeneratedRegex(@"(Minima.+)Module", RegexOptions.Compiled)]
         private static partial Regex ModuleNameRegEx();
 
-        [GeneratedRegex(@"^(?<ModuleId>VirtoCommerce\.[^.]+?)(Module)?\.")]
+        [GeneratedRegex(@"^(?<ModuleId>Minima\.[^.]+?)(Module)?\.")]
         private static partial Regex ModuleNameFromDependencyRegEx();
 
         [Parameter("Disable MatchVersion target")]
@@ -58,7 +58,7 @@ namespace Minima.Build
             // find all VirtoCommerce references
             return msBuildProject.Items
                 .Where(x => x.ItemType == "PackageReference"
-                            && (x.EvaluatedInclude.StartsWith("VirtoCommerce.Platform.") || ModuleNameRegEx().IsMatch(x.EvaluatedInclude)))
+                            && (x.EvaluatedInclude.StartsWith("Minima.Platform.") || ModuleNameRegEx().IsMatch(x.EvaluatedInclude)))
                 .Select(x =>
                 {
                     var versionMetadata = x.Metadata.FirstOrDefault(x => x.Name == "Version");

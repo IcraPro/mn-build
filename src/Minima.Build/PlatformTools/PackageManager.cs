@@ -10,7 +10,7 @@ namespace PlatformTools
 {
     public static class PackageManager
     {
-        private const string _defaultModuleManifest = "https://raw.githubusercontent.com/VirtoCommerce/vc-modules/master/modules_v3.json";
+        private const string _defaultModuleManifest = "https://raw.githubusercontent.com/IcraPro/mn-modules/master/modules_v3.json";
 
         public static ManifestBase CreatePackageManifest(string platformVersion, string platformAssetUrl)
         {
@@ -45,12 +45,12 @@ namespace PlatformTools
             return manifest;
         }
 
-        public static void ToFile(ManifestBase manifest, string path = "./vc-package.json")
+        public static void ToFile(ManifestBase manifest, string path = "./mn-package.json")
         {
             path.ToAbsolutePath().WriteJson(manifest);
         }
 
-        public static ManifestBase FromFile(string path = "./vc-package.json")
+        public static ManifestBase FromFile(string path = "./mn-package.json")
         {
             var absolutePath = path.ToAbsolutePath();
             var baseManifest = absolutePath.ReadJson<ManifestBase>();

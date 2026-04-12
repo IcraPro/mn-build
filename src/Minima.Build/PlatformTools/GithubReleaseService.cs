@@ -11,7 +11,7 @@ namespace PlatformTools
     internal static partial class GithubReleaseService
     {
         private static readonly string _githubUser = "virtocommerce";
-        private static readonly string _platformRepo = "vc-platform";
+        private static readonly string _platformRepo = "mn-platform";
         private static readonly GitHubClient _client = new GitHubClient(new ProductHeaderValue("mn-build"));
 
         public static Task<Release> GetPlatformRelease(string releaseTag = null)
@@ -78,7 +78,7 @@ namespace PlatformTools
 
         internal static async Task<string> GetLatestPlatformVersion()
         {
-            const string PlatformBuildPropsUrl = "https://raw.githubusercontent.com/VirtoCommerce/vc-platform/refs/heads/master/Directory.Build.props";
+            const string PlatformBuildPropsUrl = "https://raw.githubusercontent.com/IcraPro/mn-platform/refs/heads/master/Directory.Build.props";
             var response = await HttpTasks.HttpDownloadStringAsync(PlatformBuildPropsUrl);
             var version = ParseVersionFromProps(response);
             return version;
