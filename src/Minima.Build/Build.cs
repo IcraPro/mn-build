@@ -208,7 +208,7 @@ internal partial class Build : NukeBuild
 
     protected static Project WebProject => Solution?.AllProjects.FirstOrDefault(x =>
         x.Name.EndsWith(DefaultProject) || x.Name.EndsWith("VirtoCommerce.Storefront") ||
-        x.Name.EndsWith("VirtoCommerce.Build"));
+        x.Name.EndsWith("Minima.Build") || x.Name.EndsWith("Minima.Build"));
 
     protected static AbsolutePath ModuleManifestFile => WebProject?.Directory / "module.manifest";
     protected static AbsolutePath ModuleIgnoreFile => RootDirectory / "module.ignore";
