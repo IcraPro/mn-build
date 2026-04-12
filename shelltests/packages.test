@@ -14,6 +14,6 @@ mn-build update
 >>>= 0
 
 # Update to the edge
-mn-build update -edge
->>>2
->>>= 0
+# mn-build update -edge
+# >>>2
+#>>>= 0
