@@ -2,11 +2,11 @@
   <!-- These properties will be shared for all projects -->
 
   <PropertyGroup>
-    <Product>VirtoCommerce</Product>
-    <Copyright>Copyright © VirtoCommerce 2011-2022</Copyright>
+    <Product>Minima</Product>
+    <Copyright>Copyright © Minima 2020-2026</Copyright>
   </PropertyGroup>
   <PropertyGroup>
-    <VersionPrefix>3.824.0</VersionPrefix>
+    <VersionPrefix>1.0.0</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <VersionSuffix Condition=" '$(VersionSuffix)' != '' AND '$(BuildNumber)' != '' ">$(VersionSuffix)-$(BuildNumber)</VersionSuffix>
   </PropertyGroup>
@@ -15,12 +15,12 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(MSBuildProjectName.Contains(Tests))' == false">
-    <Authors>VirtoCommerce</Authors>
-    <Title>VirtoCommerce build CLI</Title>
+    <Authors>Minima</Authors>
+    <Title>Minima build CLI</Title>
     <Description>Cross-platform  build automation system for VirtoCommerce projects</Description>
     <PackageVersion>$(VersionPrefix)</PackageVersion>
     <PackageVersion Condition=" '$(VersionSuffix)' != ''">$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
-    <Description>Cross-platform  build automation system for VirtoCommerce projects</Description>
+    <Description>Cross-platform  build automation system for Minima projects</Description>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
