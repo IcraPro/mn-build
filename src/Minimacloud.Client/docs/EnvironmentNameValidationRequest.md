@@ -1,4 +1,4 @@
-# VirtoCloud.Client.Model.EnvironmentNameValidationRequest
+# MinimaCloud.Client.Model.EnvironmentNameValidationRequest
 
 ## Properties
 

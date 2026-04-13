@@ -1,4 +1,4 @@
-# VirtoCloud.Client.Model.Helm
+# MinimaCloud.Client.Model.Helm
 
 ## Properties
 

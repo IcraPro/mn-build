@@ -116,7 +116,7 @@ mn-build PushImage -DockerImageName mycompany/mystore:v1.0.0
 - **`DockerImageTag`** - Docker image tags (timestamp-based if not provided)
 - **`DockerfilePath`** - Path to custom Dockerfile
 - **`DockerBuildContextPath`** - Custom Docker build context path
-- **`CloudToken`** - VirtoCloud authentication token (required for cloud deployments)
+- **`CloudToken`** - MinimaCloud authentication token (required for cloud deployments)
 - **`ServicePlan`** - Cloud service plan (defaults to F1)
 
 ## What Gets Containerized
@@ -181,9 +181,9 @@ mn-build CloudUp -EnvironmentName staging \
   -DockerUsername myuser \
   -DockerPassword $PRIVATE_TOKEN \
   -DockerRegistryUrl https://myregistry.company.com \
-  -DockerImageName myregistry.company.com/virtocommerce/staging
+  -DockerImageName myregistry.company.com/minima-platform/staging
 ```
 
 ## Summary
 
-The Container Create functionality in mn-build provides a complete, automated solution for containerizing Minima applications. It handles the complex process of building, configuring, and deploying Docker containers that include the Minima platform, all modules, and proper configuration. The workflow is designed to work seamlessly with VirtoCloud for cloud deployments while also supporting custom registries and manual container management.
+The Container Create functionality in mn-build provides a complete, automated solution for containerizing Minima applications. It handles the complex process of building, configuring, and deploying Docker containers that include the Minima platform, all modules, and proper configuration. The workflow is designed to work seamlessly with MinimaCloud for cloud deployments while also supporting custom registries and manual container management.

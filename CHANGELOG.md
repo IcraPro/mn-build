@@ -238,7 +238,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.0.0] - 2021-08-05
 ### Changed
 - mn-build was updated to .Net 5
-- Documentation was moved from vc-platform repo
+- Documentation was moved from mn-platform repo
 - Updated dependencies
 ### Added
 - Force parameter
@@ -429,7 +429,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - NUKE Execution Engine updated to 0.24.7
 - GitVersion updated to 5.2.4
-- Virtocommerce.Platform dependency changed from ProjectReference to PackageReference
+- Minima Platform dependency changed from ProjectReference to PackageReference
 
 ## [3.0.0-beta0008] - 2020-01-28
 ### Added

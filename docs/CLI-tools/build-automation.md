@@ -31,7 +31,7 @@ A total of 1 test files matched the specified pattern.
 Passed!  - Failed:     0, Passed:    48, Skipped:     0, Total:    48, Duration: 4 s - Minima.CatalogCsvImportModule.Tests.dll (netcoreapp3.1)
 
 Calculating coverage result...
-  Generating report 'c:\Projects\Minima\V3\Modules\vc-module-catalog-csv-import\.tmp\coverage.xml'
+  Generating report 'c:\Projects\Minima\V3\Modules\mn-module-catalog-csv-import\.tmp\coverage.xml'
 +-------------------------------------------+--------+--------+--------+
 | Module                                    | Line   | Branch | Method |
 +-------------------------------------------+--------+--------+--------+
@@ -99,7 +99,7 @@ Pack the build artifacts into a distribution bundle zip that is ready to be tran
 
 This target excludes from the resulting zip all files whose names are enumerated from multiple sources:
 
-- [global module.ignore](https://raw.githubusercontent.com/Minima/vc-platform/dev/module.ignore) file that is managed by the Minima team
+- [global module.ignore](https://raw.githubusercontent.com/Minima/mn-platform/dev/module.ignore) file that is managed by the Minima team
 - local `.moduleignore` file that is taken from the root folder of the module
 - dependency-derived binary file names (.dll, .so) collected from dependency module zips
 
@@ -145,7 +145,7 @@ The container creation process performs these key operations:
    - Pushes the built image to the registry for deployment
 
 4. **Deploys to Cloud** (`CloudUp`/`CloudDeploy` targets):
-   - Creates or updates VirtoCloud environments
+   - Creates or updates MinimaCloud environments
    - Configures the environment to use the custom Docker image
    - Handles all cloud deployment automation
 
@@ -183,7 +183,7 @@ mn-build PushImage -DockerImageName mycompany/mystore:latest
 - **`DockerImageTag`** - Docker image tags (optional, timestamp-based if not provided)
 - **`DockerfilePath`** - Path to custom Dockerfile (optional)
 - **`DockerBuildContextPath`** - Custom Docker build context path (optional)
-- **`CloudToken`** - VirtoCloud authentication token (required for cloud deployments)
+- **`CloudToken`** - MinimaCloud authentication token (required for cloud deployments)
 - **`ServicePlan`** - Cloud service plan (optional, defaults to F1)
 
 ### Example:

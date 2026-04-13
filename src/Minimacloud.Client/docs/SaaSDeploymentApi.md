@@ -1,4 +1,4 @@
-# VirtoCloud.Client.Api.SaaSDeploymentApi
+# MinimaCloud.Client.Api.SaaSDeploymentApi
 
 All URIs are relative to *http://localhost*
 
@@ -49,9 +49,9 @@ All URIs are relative to *http://localhost*
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -141,9 +141,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -233,9 +233,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -320,9 +320,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -407,9 +407,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -499,9 +499,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -586,9 +586,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -673,9 +673,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -760,9 +760,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -842,9 +842,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -934,9 +934,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -1026,9 +1026,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -1118,9 +1118,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -1212,9 +1212,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -1306,9 +1306,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -1393,9 +1393,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -1489,9 +1489,9 @@ catch (ApiException e)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -1587,9 +1587,9 @@ catch (ApiException e)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -1679,9 +1679,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -1771,9 +1771,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -1858,9 +1858,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -1950,9 +1950,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -2037,9 +2037,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -2124,9 +2124,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -2215,9 +2215,9 @@ This endpoint does not need any parameter.
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -2307,9 +2307,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -2401,9 +2401,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -2493,9 +2493,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -2585,9 +2585,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -2667,9 +2667,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -2754,9 +2754,9 @@ No authorization required
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -2841,9 +2841,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {
@@ -2933,9 +2933,9 @@ void (empty response body)
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using VirtoCloud.Client.Api;
-using VirtoCloud.Client.Client;
-using VirtoCloud.Client.Model;
+using MinimaCloud.Client.Api;
+using MinimaCloud.Client.Client;
+using MinimaCloud.Client.Model;
 
 namespace Example
 {

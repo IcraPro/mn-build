@@ -9,14 +9,14 @@ mn-build install -module <module> -version <version>
 mn-build install -module <module>:<version>
 ```
 
-This command downloads and installs the platform or modules into the relevant folder with the versions transferred as command parameters or defined in `vc-package.json`.
+This command downloads and installs the platform or modules into the relevant folder with the versions transferred as command parameters or defined in `mn-package.json`.
 
 ### Notes (since 3.817)
 - More resilient module source handling:
   - `GithubReleases` source initializes with empty lists by default.
-  - Missing or empty `Sources` in `vc-package.json` no longer cause failures; sensible defaults are applied.
+  - Missing or empty `Sources` in `mn-package.json` no longer cause failures; sensible defaults are applied.
 
-### Example of the vc-package.json file:
+### Example of the mn-package.json file:
 ```console
 {
   "Sources": [
@@ -37,7 +37,7 @@ This command downloads and installs the platform or modules into the relevant fo
       "Owner": "Minima",
       "Modules":[
         {
-          "Id": "vc-module-custom",
+          "Id": "mn-module-custom",
           "Version": "3.16.0"
         }
       ]
@@ -48,7 +48,7 @@ This command downloads and installs the platform or modules into the relevant fo
       "Project": "<Project ID or project name>",
       "Modules": [
         {
-          "Id": "vc-module-custom",
+          "Id": "mn-module-custom",
           "Version": "3.14.0",
           "Branch": "<Branch name>",
           "Definition": "<definition name with optional leading folder path, or the definition id>"
@@ -91,11 +91,11 @@ This command downloads and installs the platform or modules into the relevant fo
       "Name": "Local",
       "Modules": [
         {
-          "Path": "C:/projects/vc/vc-module-saas/artifacts/Minima.SaaS_3.214.0.zip",
+          "Path": "C:/projects/mn/mn-module-saas/artifacts/Minima.SaaS_3.214.0.zip",
           "Id": "OptionalForThisSource"
         },
         {
-          "Path": "C:\\projects\\vc\\vc-module-catalog\\artifacts\\Minima.Catalog"
+          "Path": "C:\\projects\\mn\\mn-module-catalog\\artifacts\\Minima.Catalog"
         }
       ]
     }
@@ -105,14 +105,14 @@ This command downloads and installs the platform or modules into the relevant fo
 }
 ```
 
-The `vc-package.json` file is used to maintain the list of installed modules with their versions. This allows `mn-build` to easily restore the platform with modules on a different machine, such as a build server, without all those packages.
+The `mn-package.json` file is used to maintain the list of installed modules with their versions. This allows `mn-build` to easily restore the platform with modules on a different machine, such as a build server, without all those packages.
 
 - `mn-build install (with no args)`
 
-This target downloads and installs the platform and modules into the relevant folder with versions described in `vc-package.json`.
-If `vc-package.json` is not found in the local folder, the command will by default download and install the latest stable bundle. If -Edge parameter has been used then this target will download the latest available platform and modules marked as `commerce`.
+This target downloads and installs the platform and modules into the relevant folder with versions described in `mn-package.json`.
+If `mn-package.json` is not found in the local folder, the command will by default download and install the latest stable bundle. If -Edge parameter has been used then this target will download the latest available platform and modules marked as `commerce`.
 
-By default, the `install` target will install all modules listed as dependencies in `vc-package.json`.
+By default, the `install` target will install all modules listed as dependencies in `mn-package.json`.
 
 ### Examples:
 ```console
@@ -138,7 +138,7 @@ You can also install multiple modules with a single command by specifying multip
 
 If the module to be installed has dependencies, their latest versions will be installed along with it.
 
-This command also modifies the `vc-package.json` file with the installed dependencies after successful run.
+This command also modifies the `mn-package.json` file with the installed dependencies after successful run.
 
 ### Examples:
 ```console
@@ -171,7 +171,7 @@ This command will update the platform and all modules linked to the version spec
 If `<version>` is not specified, the component will be updated to the latest version.
 If no args are specified, the platform and all modules in the specified location will be updated.
 
-This command also updates the installed dependency versions in the `vc-package.json` file.
+This command also updates the installed dependency versions in the `mn-package.json` file.
 Since the version 3.15.0 this target updates to stable bundles by default. If you want to update to the latest available versions you can add -Edge parameter.
 You can specify the bundle to update your environment to specific versions using -v <bundle name> parameter.
 
@@ -192,7 +192,7 @@ mn-build update -module Minima.Cart -version 3.30.0
 mn-build uninstall -module <module>
 ```
 This uninstalls the module in question and completely removes all modules that depend on it.
-It also removes uninstalled modules from your `vc-package.json` file.
+It also removes uninstalled modules from your `mn-package.json` file.
 
 ### Examples:
 ```console

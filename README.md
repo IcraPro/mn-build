@@ -182,17 +182,17 @@ mn-build install -module <module> -version <version>
 mn-build install -module <module>:<version>
 ```
 
-This command downloads and install into the current folder the platform or modules with versions that are passed as the command parameters or defined in `vc-package.json`. 
+This command downloads and install into the current folder the platform or modules with versions that are passed as the command parameters or defined in `mn-package.json`. 
 
-`vc-package.json` - file is used to maintain the list of installed modules with their versions. This allows `mn-build` to easily restore the platform with the modules when on a different machine, such as a build server, without all those packages.
+`mn-package.json` - file is used to maintain the list of installed modules with their versions. This allows `mn-build` to easily restore the platform with the modules when on a different machine, such as a build server, without all those packages.
 
 
 - `mn-build install (with no args)`
 
-This target downloads and install into the current folder the platform and modules with versions described in `vc-package.json`. 
-If `vc-package.json` is not found in the local folder, by default the command will download and install the latest platform and modules versions that are marked with the `commerce` group.
+This target downloads and install into the current folder the platform and modules with versions described in `mn-package.json`. 
+If `mn-package.json` is not found in the local folder, by default the command will download and install the latest platform and modules versions that are marked with the `commerce` group.
 
-By default, `install` target will install all modules listed as dependencies in `vc-package.json`.
+By default, `install` target will install all modules listed as dependencies in `mn-package.json`.
 
 Examples:
 ```console
@@ -218,7 +218,7 @@ You can also install multiple modules with a single command by specifying multip
 
 If the module to be installed has dependencies, their latest versions will be installed along with it.
 
-This command also modified the `vc-package.json` with the installed dependencies after successful command execution.
+This command also modified the `mn-package.json` with the installed dependencies after successful command execution.
 
 Examples:
 ```console
@@ -238,7 +238,7 @@ This command will update the platform and all modules listed to the version spec
 If `<version>` is not specified the component will updated to the latest version.
 If no args are specified, the platform and all modules in the specified location will be updated.
 
-This command also updated the installed dependencies versions in the `vc-package.json` 
+This command also updated the installed dependencies versions in the `mn-package.json` 
 
 Examples:
 ```console
@@ -254,7 +254,7 @@ mn-build update -module Minima.Cart -version 3.30.0
 mn-build uninstall -module <module>
 ```
 This uninstalls a module and completely removes all modules that depend on it.
-It also removes uninstalled modules from your `vc-package.json`.
+It also removes uninstalled modules from your `mn-package.json`.
 
 Examples:
 ```console

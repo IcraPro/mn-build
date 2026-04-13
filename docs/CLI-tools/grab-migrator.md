@@ -18,8 +18,8 @@ mn-build GrabMigrator --grab-migrator-config <configfile>
 {
   "MigrationDirectories": [
     "D:\\AK\\Code\\Projects\\VC3-DEV-CORE3\\modules",
-    "D:\\AK\\Code\\Projects\\VC3-DEV-CORE3\\vc-platform\\src\\Minima.Platform.Data",
-    "D:\\AK\\Code\\Projects\\VC3-DEV-CORE3\\vc-platform\\src\\Minima.Platform.Security"
+    "D:\\AK\\Code\\Projects\\VC3-DEV-CORE3\\mn-platform\\src\\Minima.Platform.Data",
+    "D:\\AK\\Code\\Projects\\VC3-DEV-CORE3\\mn-platform\\src\\Minima.Platform.Security"
   ],
   "StatementsDirectory": "Statements"
 }
@@ -66,7 +66,7 @@ Nodes explanation:
     "Minima.DynamicAssociationsModule",
     "Minima.QuoteModule"
   ],
-  "PlatformConfigFile": "D:\\AK\\Code\\Projects\\VC3-DEV-CORE3\\vc-platform\\src\\Minima.Platform.Web\\appsettings.json",
+  "PlatformConfigFile": "D:\\AK\\Code\\Projects\\VC3-DEV-CORE3\\mn-platform\\src\\Minima.Platform.Web\\appsettings.json",
   "StatementsDirectory": "Statements",
   "CommandTimeout": 30,
   "Grab": false,
