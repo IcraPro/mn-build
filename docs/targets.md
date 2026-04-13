@@ -1,5 +1,5 @@
 ## Init
-Creates `vc-package.json` boilerplate with the latest version number of the platform. The version number can be specified by the `PlatformVersion` parameter.
+Creates `mn-package.json` boilerplate with the latest version number of the platform. The version number can be specified by the `PlatformVersion` parameter.
 
 ### Parameters
 - `PlatformVersion`: Specify the platform version (optional, defaults to latest)
@@ -11,9 +11,9 @@ mn-build Init -PlatformVersion 3.52.0
 ```
 ---
 ## Install
-Downloads and installs the platform or modules into the current folder. Versions can be specified as command parameters or defined in `vc-package.json`.
+Downloads and installs the platform or modules into the current folder. Versions can be specified as command parameters or defined in `mn-package.json`.
 
-`vc-package.json` maintains the list of installed modules with their versions, allowing `mn-build` to restore the platform and modules on different machines.
+`mn-package.json` maintains the list of installed modules with their versions, allowing `mn-build` to restore the platform and modules on different machines.
 
 **Platform Prerelease Support**: The Install target now supports installation of platform prereleases. When installing a platform with a non-standard version (prerelease version), the system automatically configures the platform asset URL to point to the prereleases blob container.
 
@@ -35,7 +35,7 @@ mn-build install -platform -version <version>
 mn-build install -platform -version <prerelease-version>
 mn-build install -module <module> -version <version>
 mn-build install -module <module>:<version>
-mn-build install -PackageManifestPath some_directory/vc-package.json -DiscoveryPath ../modules -ProbingPath platform_dir/app_data/modules -SkipDependencySolving
+mn-build install -PackageManifestPath some_directory/mn-package.json -DiscoveryPath ../modules -ProbingPath platform_dir/app_data/modules -SkipDependencySolving
 ```
 ---
 ## Update
@@ -67,7 +67,7 @@ mn-build ShowDiff -edge
 ```
 ---
 ## InstallModules
-Installs modules according to `vc-package.json` and solves dependencies.
+Installs modules according to `mn-package.json` and solves dependencies.
 
 ### Parameters
 - `DiscoveryPath`: Override modules discovery path
@@ -91,7 +91,7 @@ mn-build ValidateDependencies -DiscoveryPath ../modules
 ```
 ---
 ## InstallPlatform
-Installs the platform according to `vc-package.json`.
+Installs the platform according to `mn-package.json`.
 
 ### Usage
 ```console
@@ -271,7 +271,7 @@ Starts the Sonar scanner by executing `dotnet sonarscanner begin`. Accepts param
 
 ### Usage
 ```console
-mn-build SonarQubeStart -SonarBranchName dev -SonarAuthToken *** -RepoName vc-module-marketing
+mn-build SonarQubeStart -SonarBranchName dev -SonarAuthToken *** -RepoName mn-module-marketing
 ```
 ---
 ## SonarQubeEnd
@@ -409,7 +409,7 @@ mn-build Configure -Sql "MsSql connection string" -Redis "Redis connection strin
 Updates applications in the cloud. Accepts the following parameters: `CloudToken`, `Manifest`, `RoutesFile` (optional).
 
 ### Parameters
-- `CloudToken`: VirtoCloud authentication token (required)
+- `CloudToken`: MinimaCloud authentication token (required)
 - `Manifest`: Path to application manifest file (required)
 - `RoutesFile`: Path to routes file (optional)
 
@@ -423,7 +423,7 @@ mn-build CloudEnvUpdate -CloudToken <your token> -Manifest <path to application 
 Updates parameters of the cloud environment. Accepts parameters like `CloudToken`, `EnvironmentName`, `HelmParameters` (Array), `Organization` (optional).
 
 ### Parameters
-- `CloudToken`: VirtoCloud authentication token (required)
+- `CloudToken`: MinimaCloud authentication token (required)
 - `EnvironmentName`: Environment name (required)
 - `HelmParameters`: Array of Helm parameters in key=value format (required)
 - `Organization`: Organization name (optional)
@@ -437,7 +437,7 @@ mn-build CloudEnvSetParameter -CloudToken <your token> -EnvironmentName <environ
 Waits for health and/or sync statuses of the environment. Accepts parameters like `CloudToken`, `EnvironmentName`, `HealthStatus`, `SyncStatus`.
 
 ### Parameters
-- `CloudToken`: VirtoCloud authentication token (required)
+- `CloudToken`: MinimaCloud authentication token (required)
 - `EnvironmentName`: Environment name (required)
 - `HealthStatus`: Expected health status to wait for
 - `SyncStatus`: Expected sync status to wait for
@@ -448,7 +448,7 @@ mn-build CloudEnvStatus -CloudToken <your token> -EnvironmentName <environment n
 ```
 ---
 ## CloudAuth
-Saves a token for accessing the VirtoCloud portal, eliminating the need to use the `CloudToken` parameter with every call to targets in the Cloud group. Accepts parameters like `AzureAD` (optional), `CloudToken` (optional).
+Saves a token for accessing the MinimaCloud portal, eliminating the need to use the `CloudToken` parameter with every call to targets in the Cloud group. Accepts parameters like `AzureAD` (optional), `CloudToken` (optional).
 
 ### Parameters
 - `AzureAD`: Use Azure AD authentication (optional)
@@ -539,7 +539,7 @@ This is the complete "Container Create" workflow that builds and deploys a conta
 - `DockerRegistryUrl`: Docker registry URL (optional, defaults to Docker Hub)
 - `DockerImageName`: Custom image name (optional, auto-generated from username/environment)
 - `DockerImageTag`: Image tags (optional, timestamp-based if not provided)
-- `CloudToken`: VirtoCloud authentication token (required)
+- `CloudToken`: MinimaCloud authentication token (required)
 - `Organization`: Organization name (optional)
 
 ### Usage
@@ -566,7 +566,7 @@ This is the complete "Container Create and Deploy" workflow for new environments
 - `DockerRegistryUrl`: Docker registry URL (optional, defaults to Docker Hub)
 - `DockerImageName`: Custom image name (optional, auto-generated from username/environment)
 - `DockerImageTag`: Image tags (optional, timestamp-based if not provided)
-- `CloudToken`: VirtoCloud authentication token (required)
+- `CloudToken`: MinimaCloud authentication token (required)
 - `ServicePlan`: Cloud service plan (optional, defaults to F1)
 - `ClusterName`: Target cluster name (optional)
 - `DbProvider`: Database provider (optional)

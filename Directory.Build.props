@@ -17,7 +17,7 @@
   <PropertyGroup Condition="'$(MSBuildProjectName.Contains(Tests))' == false">
     <Authors>Minima</Authors>
     <Title>Minima build CLI</Title>
-    <Description>Cross-platform  build automation system for VirtoCommerce projects</Description>
+    <Description>Cross-platform  build automation system for Minima projects</Description>
     <PackageVersion>$(VersionPrefix)</PackageVersion>
     <PackageVersion Condition=" '$(VersionSuffix)' != ''">$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
     <Description>Cross-platform  build automation system for Minima projects</Description>

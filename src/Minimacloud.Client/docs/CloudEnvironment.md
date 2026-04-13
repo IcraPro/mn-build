@@ -1,4 +1,4 @@
-# VirtoCloud.Client.Model.CloudEnvironment
+# MinimaCloud.Client.Model.CloudEnvironment
 
 ## Properties
 
